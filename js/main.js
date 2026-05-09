@@ -768,7 +768,7 @@
     };
 
     const initReveal = () => {
-        const revealItems = qsa(".reveal-up, [data-reveal]");
+        const revealItems = qsa(".reveal-up:not(.is-visible), [data-reveal]:not(.is-visible)");
         if (!revealItems.length) return;
 
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -778,12 +778,15 @@
             return;
         }
 
-        const observer = new IntersectionObserver(
+        if (!initReveal._observer) {
+            const ObservedSet = "WeakSet" in window ? WeakSet : Set;
+            initReveal._observed = new ObservedSet();
+            initReveal._observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
+                    initReveal._observer.unobserve(entry.target);
                 });
             },
             {
@@ -792,9 +795,17 @@
                 rootMargin: "0px 0px -8% 0px"
             }
         );
+        }
 
-        revealItems.forEach((item) => observer.observe(item));
+        revealItems.forEach((item) => {
+            if (initReveal._observed.has(item)) return;
+            initReveal._observed.add(item);
+            initReveal._observer.observe(item);
+        });
     };
+
+    window.PestoraApp = window.PestoraApp || {};
+    window.PestoraApp.refreshReveal = initReveal;
 
     const initRequestForms = () => {
         qsa("[data-request-form]").forEach((form) => {

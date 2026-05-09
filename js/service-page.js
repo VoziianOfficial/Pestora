@@ -209,6 +209,17 @@
                 })
                 .join("");
         });
+
+        const canRefreshReveal = typeof window.PestoraApp?.refreshReveal === "function";
+        window.PestoraApp?.refreshReveal?.();
+
+        if (!canRefreshReveal) {
+            window.requestAnimationFrame(() => {
+                doc.querySelectorAll(".factor-card.reveal-up:not(.is-visible), .compare-pill.reveal-up:not(.is-visible)").forEach(
+                    (element) => element.classList.add("is-visible")
+                );
+            });
+        }
     };
 
     const getFactorTitle = (text, index) => {
