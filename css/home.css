@@ -1,0 +1,1189 @@
+.home-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(820px, 100svh);
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    padding-block: calc(var(--header-height) + clamp(3.2rem, 7vw, 6rem)) clamp(5rem, 9vw, 8rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.home-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.86) 0%, rgba(23, 17, 10, 0.68) 35%, rgba(23, 17, 10, 0.38) 62%, rgba(23, 17, 10, 0.58) 100%),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.25), rgba(23, 17, 10, 0.68)),
+        url("../assets/images/hero-pest-control.jpg") center / cover no-repeat;
+    filter: saturate(1.05) contrast(1.02);
+}
+
+.home-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(255, 210, 46, 0.18), transparent 26rem),
+        radial-gradient(circle at 72% 72%, rgba(255, 210, 46, 0.12), transparent 22rem),
+        linear-gradient(180deg, transparent 68%, rgba(23, 17, 10, 0.32));
+}
+
+.home-hero .torn-paper-bottom {
+    color: var(--color-paper);
+}
+
+.home-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(260px, 0.62fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 6rem);
+}
+
+.home-hero-copy {
+    max-width: 720px;
+}
+
+.home-hero .kicker {
+    color: var(--color-accent);
+}
+
+.home-hero h1 {
+    max-width: 780px;
+    color: var(--color-paper);
+    text-wrap: balance;
+    text-shadow: 0 12px 42px rgba(0, 0, 0, 0.38);
+}
+
+.home-hero-copy>p:not(.kicker) {
+    max-width: 610px;
+    margin-top: 1.25rem;
+    color: rgba(255, 247, 232, 0.86);
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+    line-height: 1.72;
+}
+
+.home-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 1.85rem;
+}
+
+.home-hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.35rem;
+}
+
+.home-hero-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 32px;
+    padding: 0.42rem 0.72rem;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 999px;
+    color: rgba(255, 247, 232, 0.86);
+    background: rgba(255, 247, 232, 0.08);
+    backdrop-filter: blur(12px);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.home-hero-trust span::before {
+    content: "✓";
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-paper);
+    font-size: 0.68rem;
+    font-weight: 900;
+}
+
+.hero-cockroach {
+    position: absolute;
+    right: clamp(5rem, 16vw, 19rem);
+    bottom: clamp(3.6rem, 7vw, 6.5rem);
+    z-index: 4;
+    width: clamp(160px, 20vw, 310px);
+    height: clamp(110px, 14vw, 220px);
+    color: rgba(255, 210, 46, 0.86);
+    filter: drop-shadow(0 28px 42px rgba(0, 0, 0, 0.45));
+    transform: rotate(-6deg);
+    pointer-events: none;
+}
+
+.hero-cockroach svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(83, 45, 19, 0.62);
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.hero-paper-card {
+    position: relative;
+    justify-self: end;
+    width: min(100%, 360px);
+    padding: 1.1rem;
+    border: 1px solid rgba(255, 247, 232, 0.22);
+    border-radius: 26px;
+    background: rgba(23, 17, 10, 0.34);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-deep);
+}
+
+.hero-paper-card::before {
+    content: "";
+    position: absolute;
+    inset: 0.7rem;
+    z-index: -1;
+    border-radius: 20px;
+    background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.12), rgba(255, 247, 232, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.hero-paper-card h2 {
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero-paper-card ul {
+    display: grid;
+    gap: 0.7rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hero-paper-card li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    color: rgba(255, 247, 232, 0.82);
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+.hero-paper-card li::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    margin-top: 0.4rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 5px rgba(255, 210, 46, 0.14);
+}
+
+.pest-category-section {
+    position: relative;
+    z-index: 2;
+    margin-top: -1px;
+    padding-block: clamp(2.2rem, 4vw, 3.2rem) clamp(2.9rem, 6vw, 4.8rem);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(29, 22, 14, 0.07), transparent 16rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.pest-category-section .decor-insect-one {
+    left: 2.2%;
+    top: 20%;
+    width: 170px;
+    height: 170px;
+    transform: rotate(-20deg);
+}
+
+.pest-category-section .decor-insect-two {
+    right: 8%;
+    bottom: 7%;
+    width: 210px;
+    height: 210px;
+    transform: rotate(13deg);
+}
+
+.pest-category-heading {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.pest-category-heading h2 {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.pest-category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(0.85rem, 2vw, 1.45rem);
+    align-items: start;
+}
+
+.pest-category {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 0.62rem;
+    min-width: 0;
+    text-align: center;
+}
+
+.pest-category-icon {
+    display: grid;
+    place-items: center;
+    width: clamp(82px, 9vw, 118px);
+    height: clamp(82px, 9vw, 118px);
+    border: 1px solid rgba(216, 196, 157, 0.76);
+    border-radius: 999px;
+    color: var(--color-heading);
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.9), rgba(255, 247, 232, 0.86)),
+        var(--color-paper);
+    box-shadow:
+        0 14px 34px rgba(29, 22, 14, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.76);
+    transition:
+        transform var(--transition-slow),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        color var(--transition);
+}
+
+.pest-category-icon svg {
+    width: 48%;
+    height: 48%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform var(--transition-slow);
+}
+
+.pest-category h3 {
+    position: relative;
+    width: fit-content;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.pest-category h3::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: -0.35rem;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    transform: scaleX(0.65);
+    transition: transform var(--transition);
+}
+
+.pest-category p {
+    display: none;
+}
+
+.pest-category:hover .pest-category-icon {
+    transform: translateY(-5px) rotate(-2deg);
+    color: var(--color-dark);
+    border-color: var(--color-accent);
+    box-shadow:
+        0 20px 44px rgba(29, 22, 14, 0.12),
+        0 0 0 6px rgba(255, 210, 46, 0.18);
+}
+
+.pest-category:hover .pest-category-icon svg {
+    transform: rotate(5deg) scale(1.04);
+}
+
+.pest-category:hover h3::after {
+    transform: scaleX(1);
+}
+
+.home-about {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding-block: clamp(3.4rem, 7vw, 6.2rem);
+    background:
+        linear-gradient(180deg, rgba(242, 230, 209, 0.82), rgba(255, 247, 232, 0.96)),
+        var(--color-bg);
+}
+
+.home-about .torn-paper-top,
+.home-about .torn-paper-bottom {
+    color: var(--color-paper);
+}
+
+.home-about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.82fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+}
+
+.home-about-copy {
+    max-width: 580px;
+}
+
+.about-check-list {
+    display: grid;
+    gap: 0.66rem;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.about-check-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.64rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.about-check-list li::before {
+    content: "✓";
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    margin-top: 0.14rem;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.76rem;
+    font-weight: 950;
+}
+
+.home-about-media {
+    position: relative;
+    min-height: clamp(360px, 38vw, 520px);
+}
+
+.about-photo-wrap {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(100%, 480px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 0.55rem;
+    background:
+        linear-gradient(135deg, rgba(255, 247, 232, 0.9), rgba(216, 196, 157, 0.7));
+    box-shadow:
+        0 26px 70px rgba(29, 22, 14, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.about-photo-wrap::before {
+    content: "";
+    position: absolute;
+    inset: -0.7rem;
+    z-index: -1;
+    border: 1px dashed rgba(123, 106, 85, 0.35);
+    border-radius: 50%;
+}
+
+.about-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: saturate(1.02) contrast(1.02);
+}
+
+.about-paper-note {
+    position: absolute;
+    right: 0;
+    bottom: 9%;
+    z-index: 3;
+}
+
+.about-mini-insect {
+    position: absolute;
+    right: -2%;
+    bottom: 4%;
+    z-index: 4;
+    width: 64px;
+    height: 64px;
+    color: rgba(29, 22, 14, 0.52);
+    transform: rotate(22deg);
+    pointer-events: none;
+}
+
+.about-mini-insect svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(255, 210, 46, 0.18);
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.benefit-strip {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 4.6rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.benefit-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.68)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.1), rgba(23, 17, 10, 0.72)),
+        url("../assets/images/benefits-pest-strip.jpg") center / cover no-repeat;
+    filter: saturate(0.95) contrast(1.05);
+}
+
+.benefit-strip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 22% 18%, rgba(255, 210, 46, 0.16), transparent 20rem),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.24));
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+
+.benefit-item {
+    position: relative;
+    display: grid;
+    gap: 0.55rem;
+    min-height: 150px;
+    padding: 0.4rem clamp(1rem, 2.2vw, 2rem);
+}
+
+.benefit-item:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 210, 46, 0.6);
+    border-radius: 999px;
+    color: var(--color-accent);
+    background: rgba(255, 210, 46, 0.08);
+}
+
+.benefit-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.benefit-item h3 {
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.benefit-item p {
+    max-width: 25ch;
+    color: rgba(255, 247, 232, 0.76);
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.how-section {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.8rem, 7vw, 6.6rem);
+    background:
+        radial-gradient(circle at 92% 12%, rgba(255, 210, 46, 0.13), transparent 18rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.how-section .decor-ant {
+    right: 3%;
+    top: 6%;
+    width: 160px;
+    height: 160px;
+    color: rgba(29, 22, 14, 0.27);
+    transform: rotate(15deg);
+}
+
+.how-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.8rem, 2vw, 1.3rem);
+    margin-top: clamp(1.6rem, 4vw, 3rem);
+}
+
+.how-steps::before {
+    content: "";
+    position: absolute;
+    top: 46px;
+    left: 8%;
+    right: 8%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(123, 106, 85, 0.32), transparent);
+}
+
+.how-step {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    gap: 0.7rem;
+    min-height: 225px;
+    padding: 0.2rem 0.95rem;
+    text-align: center;
+}
+
+.how-step-icon {
+    display: grid;
+    place-items: center;
+    width: 92px;
+    height: 92px;
+    border: 1px solid rgba(216, 196, 157, 0.75);
+    border-radius: 999px;
+    color: var(--color-heading);
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.95), rgba(255, 247, 232, 0.9)),
+        var(--color-paper);
+    box-shadow: 0 18px 40px rgba(29, 22, 14, 0.08);
+}
+
+.how-step-icon svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.how-step-number {
+    display: none;
+}
+
+.how-step h3 {
+    max-width: 180px;
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+}
+
+.how-step p {
+    max-width: 210px;
+    color: var(--color-muted);
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+.how-legal-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.5rem auto 0;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid rgba(216, 196, 157, 0.76);
+    border-radius: 999px;
+    color: var(--color-muted);
+    background: rgba(255, 247, 232, 0.72);
+    font-size: 0.78rem;
+    font-weight: 750;
+}
+
+.how-legal-note::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: var(--color-accent-strong);
+    box-shadow: 0 0 0 5px rgba(255, 210, 46, 0.2);
+}
+
+.testimonials-section {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.2rem, 6vw, 5.4rem);
+    background:
+        radial-gradient(circle at 50% 0%, rgba(255, 210, 46, 0.12), transparent 20rem),
+        linear-gradient(180deg, rgba(234, 215, 184, 0.55), rgba(242, 230, 209, 0.86));
+}
+
+.testimonial-shell {
+    position: relative;
+    margin-top: clamp(1.6rem, 4vw, 3rem);
+}
+
+.testimonial-viewport {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding: 0.35rem 0;
+}
+
+.testimonial-track {
+    display: flex;
+    gap: 1rem;
+    will-change: transform;
+}
+
+.testimonial-card {
+    position: relative;
+    flex: 0 0 min(380px, calc(100vw - 48px));
+    min-height: 205px;
+    padding: 1.15rem;
+    border: 1px solid rgba(216, 196, 157, 0.72);
+    border-radius: 10px;
+    color: var(--color-text);
+    background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.98), rgba(250, 238, 216, 0.96));
+    box-shadow:
+        0 16px 42px rgba(29, 22, 14, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.testimonial-card::before {
+    content: "“";
+    position: absolute;
+    top: -0.35rem;
+    right: 1.15rem;
+    color: rgba(199, 146, 0, 0.2);
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    line-height: 1;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 0.12rem;
+    margin-bottom: 0.65rem;
+    color: var(--color-accent-strong);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+.testimonial-card blockquote {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.testimonial-person {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+}
+
+.testimonial-avatar {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.72), transparent 42%),
+        var(--color-accent);
+    font-weight: 950;
+}
+
+.testimonial-person strong {
+    display: block;
+    color: var(--color-heading);
+    font-size: 0.84rem;
+    line-height: 1.2;
+}
+
+.testimonial-person span {
+    display: block;
+    color: var(--color-muted);
+    font-size: 0.76rem;
+}
+
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+}
+
+.testimonial-dot {
+    width: 8px;
+    height: 8px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(123, 106, 85, 0.34);
+    transition:
+        width var(--transition),
+        background var(--transition);
+}
+
+.testimonial-dot.is-active {
+    width: 22px;
+    background: var(--color-heading);
+}
+
+.home-services {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.4rem, 7vw, 6rem);
+    background:
+        linear-gradient(180deg, var(--color-paper), rgba(242, 230, 209, 0.96));
+}
+
+.home-services .section-heading {
+    margin-bottom: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.home-service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.85rem, 2vw, 1.25rem);
+}
+
+.home-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(4.5rem, 8vw, 7rem);
+    background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.78), rgba(242, 230, 209, 0.82));
+}
+
+.home-cta::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    z-index: -4;
+    height: 44%;
+    background:
+        linear-gradient(180deg, transparent, rgba(23, 17, 10, 0.86)),
+        url("../assets/images/cta-pest-home.jpg") center bottom / cover no-repeat;
+}
+
+.home-cta-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(420px, 1fr) minmax(220px, 0.42fr);
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+}
+
+.home-cta-copy {
+    max-width: 360px;
+}
+
+.home-cta-copy h2 {
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+}
+
+.home-cta-copy p {
+    margin-top: 0.7rem;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+}
+
+.home-cta-form {
+    padding: 1rem;
+}
+
+.home-cta .request-form {
+    gap: 0.75rem;
+}
+
+.home-cta .form-grid {
+    grid-template-columns: 1fr 1fr 1fr auto;
+    align-items: end;
+}
+
+.home-cta .form-field input,
+.home-cta .form-field select {
+    min-height: 42px;
+}
+
+.home-cta .btn {
+    min-height: 42px;
+    white-space: nowrap;
+}
+
+.cta-side-notes {
+    display: grid;
+    gap: 0.65rem;
+    padding: 1rem;
+    border: 1px solid rgba(255, 247, 232, 0.14);
+    border-radius: 20px;
+    color: var(--color-paper);
+    background:
+        radial-gradient(circle at 20% 0%, rgba(255, 210, 46, 0.12), transparent 10rem),
+        var(--color-dark);
+    box-shadow: var(--shadow-card);
+}
+
+.cta-side-notes span {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 36px;
+    color: rgba(255, 247, 232, 0.84);
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+.cta-side-notes span::before {
+    content: "✓";
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 950;
+}
+
+.home-cta-roach {
+    position: absolute;
+    right: 3.5%;
+    bottom: 8%;
+    z-index: 3;
+    width: 110px;
+    height: 110px;
+    color: rgba(255, 210, 46, 0.9);
+    filter: drop-shadow(0 16px 24px rgba(23, 17, 10, 0.42));
+    transform: rotate(-22deg);
+    pointer-events: none;
+}
+
+.home-cta-roach svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(65, 36, 16, 0.64);
+    stroke: currentColor;
+    stroke-width: 1.55;
+}
+
+@media (max-width: 1180px) {
+    .home-hero-grid {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+
+    .hero-paper-card {
+        justify-self: start;
+        width: min(100%, 520px);
+    }
+
+    .hero-cockroach {
+        right: 3%;
+        bottom: 6%;
+        opacity: 0.78;
+    }
+
+    .pest-category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 760px;
+        margin-inline: auto;
+    }
+
+    .home-service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-cta-copy {
+        max-width: 680px;
+    }
+
+    .home-cta .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .home-cta .form-field:last-of-type {
+        grid-column: span 1;
+    }
+
+    .home-cta .btn {
+        width: 100%;
+    }
+
+    .cta-side-notes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .home-about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-about-copy {
+        max-width: 760px;
+    }
+
+    .home-about-media {
+        min-height: 440px;
+    }
+
+    .about-photo-wrap {
+        left: 0;
+        right: 0;
+        width: min(100%, 420px);
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .benefit-item {
+        min-height: 140px;
+        padding: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .benefit-item:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .how-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .how-steps::before {
+        display: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .home-hero {
+        min-height: auto;
+        padding-block: calc(var(--header-height) + 3.2rem) 5.5rem;
+    }
+
+    .home-hero::before {
+        background:
+            linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.66)),
+            linear-gradient(180deg, rgba(23, 17, 10, 0.15), rgba(23, 17, 10, 0.7)),
+            url("../assets/images/hero-pest-control.jpg") 60% center / cover no-repeat;
+    }
+
+    .home-hero-actions {
+        display: grid;
+    }
+
+    .home-hero-trust {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-paper-card {
+        display: none;
+    }
+
+    .hero-cockroach {
+        width: 145px;
+        height: 105px;
+        right: -1.5rem;
+        bottom: 2.2rem;
+        opacity: 0.65;
+    }
+
+    .pest-category-section {
+        padding-top: 1.9rem;
+    }
+
+    .pest-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem 0.75rem;
+    }
+
+    .pest-category-icon {
+        width: 90px;
+        height: 90px;
+    }
+
+    .home-about-media {
+        min-height: 350px;
+    }
+
+    .about-photo-wrap {
+        width: min(100%, 330px);
+    }
+
+    .about-paper-note {
+        right: 0.6rem;
+        bottom: 0.5rem;
+        max-width: 180px;
+        padding: 0.8rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    .about-mini-insect {
+        width: 52px;
+        height: 52px;
+        right: 0;
+        bottom: -0.2rem;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-item {
+        min-height: auto;
+    }
+
+    .benefit-item p {
+        max-width: none;
+    }
+
+    .how-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .how-step {
+        grid-template-columns: auto 1fr;
+        justify-items: start;
+        align-items: center;
+        min-height: auto;
+        text-align: left;
+        padding: 0.95rem;
+        border: 1px solid rgba(216, 196, 157, 0.75);
+        border-radius: 20px;
+        background: rgba(255, 247, 232, 0.72);
+    }
+
+    .how-step-icon {
+        grid-row: span 2;
+        width: 64px;
+        height: 64px;
+    }
+
+    .how-step-icon svg {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .how-step h3,
+    .how-step p {
+        max-width: none;
+    }
+
+    .how-legal-note {
+        align-items: flex-start;
+        border-radius: 18px;
+        line-height: 1.45;
+    }
+
+    .home-service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        flex-basis: calc(100vw - 32px);
+    }
+
+    .home-cta {
+        padding-bottom: 5rem;
+    }
+
+    .home-cta .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-side-notes {
+        grid-template-columns: 1fr;
+    }
+
+    .home-cta-roach {
+        width: 78px;
+        height: 78px;
+        right: 1rem;
+        bottom: 1.2rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .pest-category-grid {
+        gap: 0.9rem 0.45rem;
+    }
+
+    .pest-category-icon {
+        width: 78px;
+        height: 78px;
+    }
+
+    .pest-category h3 {
+        font-size: 0.78rem;
+    }
+
+    .home-about-media {
+        min-height: 310px;
+    }
+
+    .about-photo-wrap {
+        width: min(100%, 286px);
+    }
+
+    .about-paper-note {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        margin: 1rem auto 0;
+    }
+}

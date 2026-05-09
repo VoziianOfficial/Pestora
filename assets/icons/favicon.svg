@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Pestora cockroach logo">
+    <path
+        d="M27 52c0-17 9-31 21-31s21 14 21 31-9 31-21 31-21-14-21-31Z"
+        fill="#2A2117"
+        stroke="#FFD22E"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M34 31c8 6 20 6 28 0M48 22v60M37 74c5 3 17 3 22 0M35 54c8 4 18 4 26 0"
+        fill="none"
+        stroke="#FFF7E8"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M31 40 12 28M29 51 8 49M31 62 13 75"
+        fill="none"
+        stroke="#1D160E"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M65 40l19-12M67 51l21-2M65 62l18 13"
+        fill="none"
+        stroke="#1D160E"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M42 22 30 8M54 22 68 8"
+        fill="none"
+        stroke="#FFD22E"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <path
+        d="M41 27c4 2 10 2 14 0"
+        fill="none"
+        stroke="#FFD22E"
+        stroke-width="2.4"
+        stroke-linecap="round"
+    />
+</svg>

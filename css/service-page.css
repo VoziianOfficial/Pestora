@@ -1,0 +1,667 @@
+.service-detail-hero {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    align-items: center;
+    min-height: clamp(500px, 72svh, 740px);
+    overflow: hidden;
+    padding-block: calc(var(--header-height) + clamp(3rem, 6vw, 5.5rem)) clamp(4.6rem, 8vw, 7rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.service-detail-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.62) 48%, rgba(23, 17, 10, 0.34)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
+        url("../assets/images/hero-pest-control.jpg") center / cover no-repeat;
+    filter: saturate(1.05) contrast(1.03);
+}
+
+.service-ant-cockroach .service-detail-hero::before {
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.91), rgba(23, 17, 10, 0.64) 48%, rgba(23, 17, 10, 0.34)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
+        url("../assets/images/hero-ant-cockroach.jpg") center / cover no-repeat;
+}
+
+.service-termite .service-detail-hero::before {
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.91), rgba(23, 17, 10, 0.64) 48%, rgba(23, 17, 10, 0.34)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
+        url("../assets/images/hero-termite.jpg") center / cover no-repeat;
+}
+
+.service-rodent .service-detail-hero::before {
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.91), rgba(23, 17, 10, 0.64) 48%, rgba(23, 17, 10, 0.34)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
+        url("../assets/images/hero-rodent.jpg") center / cover no-repeat;
+}
+
+.service-mosquito .service-detail-hero::before {
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.91), rgba(23, 17, 10, 0.64) 48%, rgba(23, 17, 10, 0.34)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
+        url("../assets/images/hero-mosquito.jpg") center / cover no-repeat;
+}
+
+.service-detail-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(255, 210, 46, 0.2), transparent 24rem),
+        radial-gradient(circle at 82% 70%, rgba(255, 210, 46, 0.1), transparent 22rem);
+}
+
+.service-detail-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(300px, 0.56fr);
+    align-items: end;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.service-detail-copy {
+    max-width: 760px;
+}
+
+.service-detail-hero .eyebrow {
+    color: var(--color-accent);
+}
+
+.service-detail-hero h1 {
+    color: var(--color-paper);
+    text-wrap: balance;
+    text-shadow: 0 16px 50px rgba(0, 0, 0, 0.42);
+}
+
+.service-detail-hero .lead {
+    max-width: 670px;
+    color: rgba(255, 247, 232, 0.84);
+}
+
+.service-detail-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.7rem;
+}
+
+.service-detail-card {
+    position: relative;
+    justify-self: end;
+    display: grid;
+    gap: 0.8rem;
+    width: min(100%, 370px);
+    padding: 1.15rem;
+    border: 1px solid rgba(255, 247, 232, 0.2);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(255, 210, 46, 0.18), transparent 12rem),
+        rgba(23, 17, 10, 0.38);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-deep);
+}
+
+.service-detail-card::before {
+    content: "";
+    position: absolute;
+    top: -0.68rem;
+    right: 2rem;
+    width: 78px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(255, 210, 46, 0.78);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    transform: rotate(6deg);
+}
+
+.service-detail-card-icon {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: 1px solid rgba(255, 210, 46, 0.5);
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+}
+
+.service-detail-card-icon svg {
+    width: 2rem;
+    height: 2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-detail-card h2 {
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.service-detail-card p {
+    color: rgba(255, 247, 232, 0.78);
+    font-size: 0.88rem;
+    line-height: 1.62;
+}
+
+.service-overview {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.4rem, 7vw, 6rem);
+    background:
+        radial-gradient(circle at 88% 12%, rgba(255, 210, 46, 0.13), transparent 18rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.service-overview-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.68fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+
+.service-overview-copy {
+    max-width: 650px;
+}
+
+.service-overview-copy .lead {
+    margin-top: 1rem;
+}
+
+.service-overview-list {
+    display: grid;
+    gap: 0.68rem;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.service-overview-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.64rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.service-overview-list li::before {
+    content: "✓";
+    display: inline-grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    margin-top: 0.13rem;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.76rem;
+    font-weight: 950;
+}
+
+.service-overview-media {
+    position: relative;
+    min-height: clamp(360px, 36vw, 500px);
+}
+
+.service-overview-photo {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: min(100%, 440px);
+    aspect-ratio: 1;
+    padding: 0.55rem;
+    border-radius: 50%;
+    background:
+        linear-gradient(135deg, rgba(255, 247, 232, 0.96), rgba(216, 196, 157, 0.72));
+    box-shadow:
+        0 26px 70px rgba(29, 22, 14, 0.18),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+}
+
+.service-overview-photo::before {
+    content: "";
+    position: absolute;
+    inset: -0.7rem;
+    z-index: -1;
+    border: 1px dashed rgba(123, 106, 85, 0.34);
+    border-radius: 50%;
+}
+
+.service-overview-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: saturate(1.03) contrast(1.02);
+}
+
+.service-overview-note {
+    position: absolute;
+    right: 0;
+    bottom: 8%;
+    z-index: 4;
+}
+
+.service-factors {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.4rem, 7vw, 5.8rem);
+    background:
+        radial-gradient(circle at 12% 10%, rgba(255, 210, 46, 0.13), transparent 18rem),
+        linear-gradient(180deg, rgba(242, 230, 209, 0.9), var(--color-paper));
+}
+
+.service-factors-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.65fr) minmax(420px, 1fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.service-factors-copy {
+    max-width: 520px;
+}
+
+.service-factors-copy p {
+    margin-top: 1rem;
+    color: var(--color-muted);
+}
+
+.factor-list {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.factor-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+    padding: 1rem;
+    border: 1px solid rgba(216, 196, 157, 0.78);
+    border-radius: 18px;
+    background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.92), rgba(250, 238, 216, 0.8));
+    box-shadow: 0 10px 28px rgba(29, 22, 14, 0.06);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+}
+
+.factor-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-card);
+}
+
+.factor-number {
+    display: inline-grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.84rem;
+    font-weight: 950;
+}
+
+.factor-card h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.factor-card p {
+    margin-top: 0.25rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+.service-compare-strip {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3.2rem, 6vw, 5rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.service-compare-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.66)),
+        url("../assets/images/provider-comparison-bg.jpg") center / cover no-repeat;
+    filter: saturate(1.02) contrast(1.05);
+}
+
+.service-compare-strip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 210, 46, 0.18), transparent 22rem),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.38));
+}
+
+.service-compare-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.68fr) minmax(420px, 1fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 5rem);
+}
+
+.service-compare-copy {
+    max-width: 520px;
+}
+
+.service-compare-copy .eyebrow {
+    color: var(--color-accent);
+}
+
+.service-compare-copy h2 {
+    color: var(--color-paper);
+}
+
+.service-compare-copy p {
+    margin-top: 1rem;
+    color: rgba(255, 247, 232, 0.78);
+    line-height: 1.72;
+}
+
+.compare-pill-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.compare-pill {
+    display: grid;
+    gap: 0.45rem;
+    min-height: 130px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.09), rgba(255, 247, 232, 0.045));
+    backdrop-filter: blur(12px);
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+}
+
+.compare-pill:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 210, 46, 0.46);
+    background:
+        linear-gradient(180deg, rgba(255, 210, 46, 0.13), rgba(255, 247, 232, 0.06));
+}
+
+.compare-pill span {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 950;
+}
+
+.compare-pill h3 {
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.compare-pill p {
+    color: rgba(255, 247, 232, 0.72);
+    font-size: 0.86rem;
+    line-height: 1.58;
+}
+
+.service-page-faq {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3.3rem, 7vw, 5.8rem);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 210, 46, 0.12), transparent 18rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.service-page-faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.66fr) minmax(420px, 1fr);
+    align-items: start;
+    gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.service-page-faq-copy {
+    max-width: 520px;
+}
+
+.service-page-faq-copy p {
+    margin-top: 1rem;
+    color: var(--color-muted);
+}
+
+.service-final-cta {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.service-final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.54)),
+        url("../assets/images/cta-pest-home.jpg") center / cover no-repeat;
+    filter: saturate(1.05) contrast(1.02);
+}
+
+.service-final-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 20% 22%, rgba(255, 210, 46, 0.2), transparent 22rem),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.15), rgba(23, 17, 10, 0.55));
+}
+
+.service-final-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid rgba(255, 247, 232, 0.18);
+    border-radius: 26px;
+    background:
+        linear-gradient(180deg, rgba(23, 17, 10, 0.32), rgba(23, 17, 10, 0.18));
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-deep);
+}
+
+.service-final-inner h2 {
+    color: var(--color-paper);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.service-final-inner p {
+    max-width: 690px;
+    margin-top: 0.75rem;
+    color: rgba(255, 247, 232, 0.78);
+}
+
+.service-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+@media (max-width: 1180px) {
+
+    .service-detail-grid,
+    .service-overview-grid,
+    .service-factors-grid,
+    .service-compare-grid,
+    .service-page-faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-detail-card {
+        justify-self: start;
+        width: min(100%, 620px);
+    }
+
+    .service-overview-copy,
+    .service-factors-copy,
+    .service-compare-copy,
+    .service-page-faq-copy {
+        max-width: 760px;
+    }
+
+    .service-overview-media {
+        min-height: 430px;
+    }
+
+    .service-overview-photo {
+        left: 0;
+        right: 0;
+        width: min(100%, 400px);
+    }
+}
+
+@media (max-width: 760px) {
+    .service-detail-hero {
+        min-height: auto;
+        padding-block: calc(var(--header-height) + 3.1rem) 5.4rem;
+    }
+
+    .service-ant-cockroach .service-detail-hero::before {
+        background:
+            linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.7)),
+            linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
+            url("../assets/images/hero-ant-cockroach.jpg") 58% center / cover no-repeat;
+    }
+
+    .service-termite .service-detail-hero::before {
+        background:
+            linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.7)),
+            linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
+            url("../assets/images/hero-termite.jpg") 58% center / cover no-repeat;
+    }
+
+    .service-rodent .service-detail-hero::before {
+        background:
+            linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.7)),
+            linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
+            url("../assets/images/hero-rodent.jpg") 58% center / cover no-repeat;
+    }
+
+    .service-mosquito .service-detail-hero::before {
+        background:
+            linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.7)),
+            linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
+            url("../assets/images/hero-mosquito.jpg") 58% center / cover no-repeat;
+    }
+
+    .service-detail-actions,
+    .service-final-actions {
+        display: grid;
+        width: 100%;
+    }
+
+    .service-detail-card {
+        display: none;
+    }
+
+    .service-overview-media {
+        min-height: 330px;
+    }
+
+    .service-overview-photo {
+        width: min(100%, 310px);
+    }
+
+    .service-overview-note {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: 210px;
+        margin: 1rem auto 0;
+        padding: 0.8rem 0.9rem;
+        font-size: 0.82rem;
+    }
+
+    .factor-card {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-pill-list {
+        grid-template-columns: 1fr;
+    }
+
+    .compare-pill {
+        min-height: auto;
+    }
+
+    .service-page-faq-grid {
+        gap: 1.4rem;
+    }
+
+    .service-final-inner {
+        grid-template-columns: 1fr;
+        border-radius: 22px;
+    }
+}
+
+@media (max-width: 430px) {
+    .service-overview-media {
+        min-height: 290px;
+    }
+
+    .service-overview-photo {
+        width: min(100%, 270px);
+    }
+}
+
+.factor-card.is-soft-muted,
+.compare-pill.is-soft-muted {
+    opacity: 0.58;
+    transform: scale(0.985);
+}
