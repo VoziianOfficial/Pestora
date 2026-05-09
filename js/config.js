@@ -121,7 +121,7 @@ window.SITE_CONFIG = {
     services: [
         {
             id: "ant-cockroach",
-            title: "Ant & Cockroach Control",
+            title: "Ant & Cockroach",
             shortTitle: "Ant & Cockroach",
             href: "ant-cockroach-control.html",
             icon: "cockroach",
@@ -130,8 +130,8 @@ window.SITE_CONFIG = {
             summary:
                 "Compare independent local pest control provider options for ant and cockroach service requests.",
             cardText:
-                "Share your pest concern and compare local providers that may handle ant and cockroach service categories.",
-            pageKicker: "Ant & cockroach provider matching",
+                "Share your pest concern and compare local providers that may handle ant.",
+            pageKicker: "Ant & cockroach provider",
             pageTitle: "Compare local ant and cockroach provider options.",
             pageIntro:
                 "Pestora helps homeowners organize request details and compare independent local providers for ant and cockroach-related pest control categories.",
@@ -222,7 +222,7 @@ window.SITE_CONFIG = {
             summary:
                 "Compare local provider options for rodent-related pest control requests and property-specific service needs.",
             cardText:
-                "Request matching for rodent service categories and compare provider scope, timing, and availability.",
+                "Request matching for rodent service categories and compare provider scope, timing.",
             pageKicker: "Rodent provider matching",
             pageTitle: "Compare local rodent provider options.",
             pageIntro:
@@ -259,7 +259,7 @@ window.SITE_CONFIG = {
         },
         {
             id: "mosquito-outdoor",
-            title: "Mosquito & Outdoor Pests",
+            title: "Mosquito",
             shortTitle: "Mosquito & Outdoor",
             href: "mosquito-outdoor-pests.html",
             icon: "mosquito",
@@ -268,8 +268,8 @@ window.SITE_CONFIG = {
             summary:
                 "Compare provider options for mosquito and outdoor pest-related service requests in your local area.",
             cardText:
-                "Explore provider options for outdoor pest concerns, seasonal service categories, and local availability.",
-            pageKicker: "Mosquito & outdoor pest provider matching",
+                "Explore provider options for outdoor pest concerns, seasonal service categories.",
+            pageKicker: "Mosquito & outdoor provider",
             pageTitle: "Compare mosquito and outdoor pest provider options.",
             pageIntro:
                 "Pestora helps homeowners compare independent local providers for mosquito and outdoor pest-related service categories.",

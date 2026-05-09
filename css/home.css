@@ -1397,3 +1397,9 @@
         -webkit-line-clamp: 5;
     }
 }
+
+/* Reduce top padding by half for home services section */
+.home-services {
+    padding-top: clamp(1.7rem, 3.5vw, 3rem) !important;
+}
+
