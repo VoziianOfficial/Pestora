@@ -1187,3 +1187,213 @@
         margin: 1rem auto 0;
     }
 }
+
+@media (min-width: 1181px) {
+    .hero-cockroach {
+        right: clamp(18rem, 28vw, 36rem);
+        transform: rotate(-6deg);
+    }
+}
+
+/* ==========================================================
+   PEST CATEGORY — SMOOTH COLOR FADE BETWEEN SECTIONS
+   Smooths abrupt background cuts at top and bottom
+   ========================================================== */
+
+.pest-category-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Main fade overlay: keeps original section color, only softens edges */
+.pest-category-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            rgba(255, 247, 232, 0) 0%,
+            rgba(255, 247, 232, 0.55) 7%,
+            rgba(255, 247, 232, 0) 18%),
+        linear-gradient(to top,
+            rgba(250, 238, 216, 0) 0%,
+            rgba(250, 238, 216, 0.62) 9%,
+            rgba(250, 238, 216, 0) 22%);
+}
+
+/* Content stays above fade overlay */
+.pest-category-section>.container {
+    position: relative;
+    z-index: 4;
+}
+
+.pest-category-section .decor-insect {
+    z-index: 3;
+}
+
+/* Make the torn paper itself less hard */
+.home-hero .torn-paper-bottom,
+.pest-category-section .torn-paper-bottom,
+.home-about .torn-paper-top {
+    opacity: 0.55 !important;
+    filter: blur(1.2px) drop-shadow(0 4px 10px rgba(29, 22, 14, 0.025)) !important;
+}
+
+/* Pull sections slightly together so the fade overlaps the edge */
+.home-hero+.pest-category-section {
+    margin-top: -18px !important;
+}
+
+.pest-category-section+.home-about {
+    margin-top: -18px !important;
+}
+
+/* ==========================================================
+   SMOOTH TRANSITION:
+   pest-category-section → home-about
+   ========================================================== */
+
+/* Секция с иконками остаётся своим цветом, но край больше не обрывается резко */
+.pest-category-section {
+    position: relative;
+    overflow: visible !important;
+    z-index: 3;
+    padding-bottom: clamp(1.4rem, 3vw, 2.4rem) !important;
+}
+
+/* Контент держим выше мягкого перехода */
+.pest-category-section>.container {
+    position: relative;
+    z-index: 5;
+}
+
+/* Декор тоже выше фона, но ниже контента */
+.pest-category-section .decor-insect {
+    z-index: 4;
+}
+
+/* Убираем жёсткие torn-линии именно между этими двумя секциями */
+.pest-category-section>.torn-paper-bottom,
+.home-about>.torn-paper-top {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Мягкий нижний fade из pest-category в следующую секцию */
+.pest-category-section::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: clamp(-5.5rem, -7vw, -3.2rem);
+    z-index: 2;
+    height: clamp(7rem, 10vw, 11rem);
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            rgba(250, 238, 216, 0.96) 0%,
+            rgba(250, 238, 216, 0.82) 28%,
+            rgba(242, 230, 209, 0.62) 58%,
+            rgba(242, 230, 209, 0) 100%);
+    filter: blur(10px);
+}
+
+/* Поднимаем about под fade, чтобы не было резкой границы */
+.pest-category-section+.home-about {
+    margin-top: clamp(-4.8rem, -6vw, -3rem) !important;
+}
+
+/* В самой about-секции верх не должен резать цвет */
+.home-about {
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(3.4rem, 6vw, 5.2rem) !important;
+}
+
+/* Дополнительное мягкое растворение сверху about */
+.home-about::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    height: clamp(5rem, 8vw, 8rem);
+    pointer-events: none;
+    background:
+        linear-gradient(to bottom,
+            rgba(250, 238, 216, 0.78) 0%,
+            rgba(242, 230, 209, 0.42) 45%,
+            rgba(242, 230, 209, 0) 100%);
+}
+
+/* Контент about выше перехода */
+.home-about>.container {
+    position: relative;
+    z-index: 3;
+}
+
+.pest-category-section .decor-insect-two {
+    right: 5.5% !important;
+}
+
+/* ==========================================================
+   TESTIMONIAL CARDS — EQUAL INTERNAL ALIGNMENT
+   ========================================================== */
+
+.testimonial-track {
+    align-items: stretch;
+}
+
+.testimonial-card {
+    display: grid !important;
+    grid-template-rows: auto 1fr auto;
+    align-content: stretch;
+    height: 230px;
+    min-height: 230px;
+    max-height: 230px;
+}
+
+.testimonial-rating {
+    align-self: start;
+    min-height: 18px;
+}
+
+.testimonial-card blockquote {
+    align-self: start;
+    display: -webkit-box;
+    min-height: 92px;
+    margin-top: 0;
+    overflow: hidden;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.testimonial-person {
+    align-self: end;
+    margin-top: 1rem;
+}
+
+/* Keep avatar/text aligned evenly */
+.testimonial-person strong,
+.testimonial-person span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Mobile: a little taller so text does not feel cramped */
+@media (max-width: 680px) {
+    .testimonial-card {
+        height: 250px;
+        min-height: 250px;
+        max-height: 250px;
+    }
+
+    .testimonial-card blockquote {
+        min-height: 108px;
+        -webkit-line-clamp: 5;
+    }
+}

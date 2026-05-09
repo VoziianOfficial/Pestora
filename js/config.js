@@ -406,21 +406,21 @@ window.SITE_CONFIG = {
             {
                 rating: 5,
                 quote:
-                    "Very easy process. I compared several providers and chose the one that fit my needs best.",
+                    "Very easy process. I compared several providers and chose the one that fit my needs best without feeling locked into one option.",
                 name: "Mark T.",
                 location: "Phoenix, AZ"
             },
             {
                 rating: 5,
                 quote:
-                    "I like that Pestora does not sell itself as the service. They just connect you with local options.",
+                    "I like that Pestora does not sell itself as the service. They just connect you with local options that fit your needs.",
                 name: "Sandra L.",
                 location: "Orlando, FL"
             },
             {
                 rating: 5,
                 quote:
-                    "The request form was simple and helped me organize what I needed before speaking with providers.",
+                    "The request form was simple and helped me organize what I needed before speaking with providers directly.",
                 name: "Anthony R.",
                 location: "Charlotte, NC"
             },
@@ -434,7 +434,7 @@ window.SITE_CONFIG = {
             {
                 rating: 5,
                 quote:
-                    "Helpful for getting a clearer view of local provider availability without feeling locked into one option.",
+                    "Helpful for getting a clearer view of local provider availability without feeling locked into one option or company.",
                 name: "Daniel K.",
                 location: "Tampa, FL"
             }

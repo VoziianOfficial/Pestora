@@ -2561,3 +2561,37 @@ address {
         box-shadow: 0 0 0 5px rgba(255, 210, 46, 0.08);
     }
 }
+
+/* ==========================================================
+   REMOVE HOVER FROM HERO PAPER CARD
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .hero-paper-card:hover,
+    .home-hero .hero-paper-card:hover,
+    .hero-paper-card.reveal-up.is-visible:hover {
+        transform: translateY(0) !important;
+        border-color: rgba(255, 247, 232, 0.22) !important;
+        background: rgba(23, 17, 10, 0.34) !important;
+        box-shadow: var(--shadow-deep) !important;
+        filter: none !important;
+    }
+
+    .hero-paper-card:hover::before,
+    .home-hero .hero-paper-card:hover::before {
+        background:
+            linear-gradient(180deg, rgba(255, 247, 232, 0.12), rgba(255, 247, 232, 0.04)) !important;
+        border-color: rgba(255, 255, 255, 0.13) !important;
+    }
+
+    .hero-paper-card:hover h2,
+    .hero-paper-card:hover p,
+    .hero-paper-card:hover li,
+    .hero-paper-card:hover span {
+        color: inherit !important;
+        transform: none !important;
+        text-shadow: none !important;
+    }
+}
+
