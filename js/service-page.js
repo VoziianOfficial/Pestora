@@ -340,3 +340,44 @@
         init();
     }
 })();
+
+/* Service snapshot dynamic content */
+(function () {
+    const config = window.SITE_CONFIG;
+    if (!config || !Array.isArray(config.services)) return;
+
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const service = config.services.find((item) => item.href === currentPage);
+
+    if (!service || !service.snapshot) return;
+
+    const snapshot = service.snapshot;
+
+    const setText = (selector, value) => {
+        const element = document.querySelector(selector);
+        if (element && value) element.textContent = value;
+    };
+
+    setText("[data-service-snapshot-word]", snapshot.word);
+    setText("[data-service-snapshot-kicker]", snapshot.kicker);
+    setText("[data-service-snapshot-title]", snapshot.title);
+    setText("[data-service-snapshot-text]", snapshot.text);
+
+    const flowRoot = document.querySelector("[data-service-snapshot-flow]");
+
+    if (flowRoot && Array.isArray(snapshot.flow)) {
+        flowRoot.innerHTML = "";
+
+        snapshot.flow.forEach((item, index) => {
+            const span = document.createElement("span");
+            span.textContent = item;
+            flowRoot.appendChild(span);
+
+            if (index < snapshot.flow.length - 1) {
+                const divider = document.createElement("i");
+                divider.setAttribute("aria-hidden", "true");
+                flowRoot.appendChild(divider);
+            }
+        });
+    }
+})();

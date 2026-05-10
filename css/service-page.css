@@ -697,3 +697,202 @@
     opacity: 0.58;
     transform: scale(0.985);
 }
+
+/* ==========================================================
+   SERVICE SNAPSHOT — UNIQUE EDITORIAL STRIP
+   No cards, no lists, compact service-page rhythm break
+   ========================================================== */
+
+.service-snapshot {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5.2rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.service-snapshot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.94), rgba(23, 17, 10, 0.58), rgba(23, 17, 10, 0.82)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
+        var(--service-snapshot-image, url("../assets/images/service-ant-cockroach.jpg")) center / cover no-repeat;
+    filter: saturate(1.04) contrast(1.05);
+}
+
+.service-snapshot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(255, 210, 46, 0.18), transparent 22rem),
+        radial-gradient(circle at 82% 74%, rgba(255, 247, 232, 0.08), transparent 24rem);
+}
+
+.service-snapshot-inner {
+    position: relative;
+    min-height: clamp(330px, 34vw, 470px);
+    display: grid;
+    align-content: center;
+    gap: clamp(1.6rem, 4vw, 3rem);
+}
+
+.service-snapshot-word {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    color: rgba(255, 247, 232, 0.045);
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 13vw, 14rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.service-snapshot-copy {
+    max-width: 760px;
+}
+
+.service-snapshot .eyebrow {
+    color: var(--color-accent);
+}
+
+.service-snapshot h2 {
+    max-width: 850px;
+    color: var(--color-paper);
+    font-size: clamp(2rem, 4.4vw, 4.4rem);
+    line-height: 0.98;
+    letter-spacing: -0.07em;
+    text-wrap: balance;
+}
+
+.service-snapshot p:not(.eyebrow) {
+    max-width: 660px;
+    margin-top: 1rem;
+    color: rgba(255, 247, 232, 0.78);
+    line-height: 1.72;
+}
+
+.service-snapshot-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(0.65rem, 1.8vw, 1.2rem);
+    color: rgba(255, 247, 232, 0.88);
+}
+
+.service-snapshot-flow span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding-bottom: 0.28rem;
+    font-size: clamp(0.78rem, 1vw, 0.94rem);
+    font-weight: 950;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.service-snapshot-flow span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 74%;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-accent);
+}
+
+.service-snapshot-flow i {
+    width: clamp(26px, 5vw, 74px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 210, 46, 0.78), transparent);
+}
+
+@media (max-width: 760px) {
+    .service-snapshot {
+        padding-block: 3rem;
+    }
+
+    .service-snapshot-inner {
+        min-height: 360px;
+    }
+
+    .service-snapshot-word {
+        font-size: clamp(4rem, 23vw, 7rem);
+        white-space: normal;
+    }
+
+    .service-snapshot-flow i {
+        display: none;
+    }
+}
+
+/* ==========================================================
+   SERVICE SNAPSHOT FLOW — PREMIUM HOVERS
+   ========================================================== */
+
+.service-snapshot-flow span,
+.service-snapshot-flow i {
+    transition:
+        transform var(--transition),
+        color var(--transition),
+        background var(--transition),
+        box-shadow var(--transition),
+        opacity var(--transition);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .service-snapshot-flow:hover span {
+        opacity: 0.62;
+    }
+
+    .service-snapshot-flow span:hover {
+        opacity: 1;
+        transform: translateY(-4px);
+        color: var(--color-accent);
+        text-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+    }
+
+    .service-snapshot-flow span:hover::after {
+        width: 100%;
+        background: var(--color-paper);
+        box-shadow: 0 0 18px rgba(255, 210, 46, 0.36);
+    }
+
+    .service-snapshot-flow span::after {
+        transition:
+            width var(--transition),
+            background var(--transition),
+            box-shadow var(--transition);
+    }
+
+    .service-snapshot-flow:hover i {
+        opacity: 0.45;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 247, 232, 0.72),
+                transparent);
+    }
+
+    .service-snapshot-flow span:hover+i,
+    .service-snapshot-flow i:has(+ span:hover) {
+        opacity: 1;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 210, 46, 0.95),
+                transparent);
+    }
+}

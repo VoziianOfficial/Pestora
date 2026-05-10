@@ -3071,3 +3071,73 @@ address {
         font-size: 0.8rem;
     }
 }
+
+/* ==========================================================
+   TABLET — KEEP HOME ABOUT + SERVICE OVERVIEW LIKE DESKTOP
+   Side-by-side layout on tablets, mobile stays stacked
+   ========================================================== */
+
+/* HOME ABOUT: tablet layout like desktop */
+@media (min-width: 681px) and (max-width: 900px) {
+    .home-about-grid {
+        grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.82fr) !important;
+        align-items: center !important;
+        gap: clamp(1.5rem, 4vw, 3rem) !important;
+    }
+
+    .home-about-copy {
+        max-width: 580px !important;
+    }
+
+    .home-about-media {
+        min-height: clamp(360px, 38vw, 480px) !important;
+    }
+
+    .about-photo-wrap {
+        left: auto !important;
+        right: auto !important;
+        width: min(100%, 430px) !important;
+    }
+
+    .about-paper-note {
+        position: absolute !important;
+        right: 0 !important;
+        bottom: 9% !important;
+    }
+}
+
+/* SERVICE OVERVIEW: tablet layout like desktop */
+@media (min-width: 761px) and (max-width: 1180px) {
+    .service-overview-grid {
+        grid-template-columns: minmax(0, 0.82fr) minmax(300px, 0.68fr) !important;
+        align-items: center !important;
+        gap: clamp(1.6rem, 4vw, 3.4rem) !important;
+    }
+
+    .service-overview-copy {
+        max-width: 650px !important;
+    }
+
+    .service-overview-media {
+        min-height: clamp(360px, 36vw, 500px) !important;
+    }
+
+    .service-overview-photo {
+        left: auto !important;
+        right: auto !important;
+        width: min(100%, 420px) !important;
+    }
+
+    .service-overview-note {
+        position: absolute !important;
+        right: 0 !important;
+        bottom: 8% !important;
+    }
+}
+
+/* Hide hero trust badges on mobile */
+@media (max-width: 680px) {
+    .home-hero-trust {
+        display: none !important;
+    }
+}

@@ -168,7 +168,15 @@ window.SITE_CONFIG = {
                     answer:
                         "No. Share what you’re noticing (where activity is happening, timing, and any property notes). Independent providers can explain scope and confirm details during the quote or inspection process."
                 }
-            ]
+            ],
+            snapshot: {
+                word: "INDOOR PESTS",
+                kicker: "Request snapshot",
+                title: "A clearer request starts with where activity is happening.",
+                text:
+                    "For ant and cockroach-related requests, homeowners can compare provider options more clearly when the request includes pest activity, room or area notes, property type, timing, and ZIP code.",
+                flow: ["Activity area", "Property notes", "Timing", "ZIP code"]
+            },
         },
         {
             id: "termite",
@@ -219,7 +227,16 @@ window.SITE_CONFIG = {
                     answer:
                         "Some providers may need an inspection step to confirm property conditions, documentation needs, and service scope before explaining pricing or treatment category details."
                 }
-            ]
+            ],
+
+            snapshot: {
+                word: "TERMITE NOTES",
+                kicker: "Inspection context",
+                title: "Termite provider comparison often starts with inspection details.",
+                text:
+                    "For termite-related requests, homeowners can compare providers more clearly by noting visible signs, affected areas, property type, documentation needs, and whether an inspection is required before pricing.",
+                flow: ["Visible signs", "Inspection step", "Estimate terms", "Verification"]
+            },
         },
         {
             id: "rodent",
@@ -270,7 +287,16 @@ window.SITE_CONFIG = {
                     answer:
                         "Exclusion generally refers to identifying and sealing potential entry points to help reduce future activity. What is included, how it is priced, and what follow-up terms apply can vary by independent provider."
                 }
-            ]
+            ],
+
+            snapshot: {
+                word: "RODENT SIGNS",
+                kicker: "Property snapshot",
+                title: "Rodent requests are easier to compare when property details are clear.",
+                text:
+                    "For rodent-related requests, provider options may differ by initial visit scope, entry-point review, follow-up process, exclusion options, and property-specific pricing.",
+                flow: ["Activity signs", "Entry points", "Follow-up", "Property type"]
+            },
         },
         {
             id: "mosquito-outdoor",
@@ -321,7 +347,15 @@ window.SITE_CONFIG = {
                     answer:
                         "It depends on the provider, location, season, and service category. Some providers may offer one-time visits, while others may explain recurring visit options and timing."
                 }
-            ]
+            ],
+            snapshot: {
+                word: "OUTDOOR PESTS",
+                kicker: "Outdoor request snapshot",
+                title: "Outdoor pest matching depends on season, space, and service scope.",
+                text:
+                    "For mosquito and outdoor pest-related requests, homeowners can compare provider options by yard or patio area, seasonal timing, one-time or recurring options, and local availability.",
+                flow: ["Yard area", "Season", "Visit type", "Availability"]
+            },
         }
     ],
 
