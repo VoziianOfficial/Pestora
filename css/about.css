@@ -549,6 +549,21 @@
         right: 0;
         width: min(100%, 420px);
     }
+
+    .about-strip-point {
+        position: relative;
+        padding-top: 3.25rem;
+    }
+
+    .about-strip-point span {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        margin-bottom: 0;
+        width: 34px;
+        height: 34px;
+        font-size: 0.78rem;
+    }
 }
 
 @media (max-width: 760px) {
@@ -606,12 +621,32 @@
         min-height: auto;
     }
 
+    .about-strip-point span {
+        top: 0.9rem;
+        right: 0.9rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.76rem;
+    }
+
     .about-values-grid {
         gap: 1.4rem;
     }
 
     .value-card {
         grid-template-columns: 1fr;
+        gap: 0.65rem;
+        padding: 0.85rem 0.95rem;
+        padding-right: 3.4rem;
+    }
+
+    .value-number {
+        position: absolute;
+        top: 0.85rem;
+        right: 0.95rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.76rem;
     }
 
     .about-cta-inner {

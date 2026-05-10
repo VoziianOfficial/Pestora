@@ -60,168 +60,246 @@
             <div class="torn-paper-bottom" aria-hidden="true"></div>
         </section>
 
-        <section class="contact-main paper-section" aria-labelledby="requestFormTitle">
-            <div class="container-wide contact-main-grid">
-                <div class="form-card contact-form-card reveal-up" id="requestForm">
-                    <div class="contact-form-head">
-                        <p class="eyebrow">Request details</p>
+<section class="contact-request-sentence paper-section" aria-labelledby="contactSentenceTitle">
+    <div class="container-wide contact-request-sentence-grid">
+        <div class="contact-sentence-copy reveal-up">
+            <p class="eyebrow">Before the form</p>
 
-                        <h2 id="requestFormTitle">
-                            Tell us what you want to compare.
-                        </h2>
+            <h2 id="contactSentenceTitle">
+                Shape your request into one clear provider-matching note.
+            </h2>
 
-                        <p>
-                            This compact form helps organize your request. Pestora does not perform pest control
-                            services directly and does not send its own technicians.
-                        </p>
-                    </div>
+            <p>
+                The form works best when your pest concern, location, timing, and property notes are clear before you
+                submit. Pestora uses those details to help organize provider comparison.
+            </p>
+        </div>
 
-                    <form class="request-form" data-request-form novalidate>
-                        <div class="form-grid">
-                            <div class="form-field">
-                                <label for="contactFullName">Full Name</label>
-                                <input id="contactFullName" name="fullName" type="text" placeholder="Your name"
-                                    autocomplete="name" required>
-                            </div>
+        <div class="contact-sentence-board reveal-up" aria-label="Example request sentence">
+            <p class="contact-sentence-label">Example request structure</p>
 
-                            <div class="form-field">
-                                <label for="contactPhone">Phone Number</label>
-                                <input id="contactPhone" name="phone" type="tel" placeholder="(555) 123-4567"
-                                    autocomplete="tel" required>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="contactEmail">Email Address</label>
-                                <input id="contactEmail" name="email" type="email" placeholder="you@example.com"
-                                    autocomplete="email" required>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="contactZip">Property ZIP Code</label>
-                                <input id="contactZip" name="zip" type="text" inputmode="numeric"
-                                    placeholder="Enter ZIP code" autocomplete="postal-code" required>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="contactPestType">Pest Problem</label>
-                                <select id="contactPestType" name="pestType" required>
-                                    <option value="">Select pest type</option>
-                                    <option value="ants">Ants</option>
-                                    <option value="cockroaches">Cockroaches</option>
-                                    <option value="termites">Termites</option>
-                                    <option value="rodents">Rodents</option>
-                                    <option value="mosquitoes">Mosquitoes</option>
-                                    <option value="spiders">Spiders</option>
-                                    <option value="bed-bugs">Bed bugs</option>
-                                    <option value="outdoor-pests">Other outdoor pests</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field">
-                                <label for="contactTiming">Preferred Timing</label>
-                                <select id="contactTiming" name="timing" required>
-                                    <option value="">Select timing</option>
-                                    <option value="as-soon-as-available">As soon as available</option>
-                                    <option value="this-week">This week</option>
-                                    <option value="next-week">Next week</option>
-                                    <option value="planning-ahead">Planning ahead</option>
-                                </select>
-                            </div>
-
-                            <div class="form-field form-field-full">
-                                <label for="contactMessage">Project Notes</label>
-                                <textarea id="contactMessage" name="message"
-                                    placeholder="Tell us about the pest concern, property type, timing, and what you want to compare."
-                                    required></textarea>
-                            </div>
-                        </div>
-
-                        <label class="form-check">
-                            <input type="checkbox" name="platformConsent" required>
-                            <span class="custom-check" aria-hidden="true"></span>
-                            <span>
-                                I understand Pestora is a matching platform and does not perform pest control services
-                                directly.
-                            </span>
-                        </label>
-
-                        <label class="form-check">
-                            <input type="checkbox" name="verificationConsent" required>
-                            <span class="custom-check" aria-hidden="true"></span>
-                            <span>
-                                I understand homeowners should verify licensing, insurance, pricing, service scope, and
-                                provider terms before hiring.
-                            </span>
-                        </label>
-
-                        <button class="btn btn-primary" type="submit">
-                            <span>Submit Request</span>
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M5 12h14M13 6l6 6-6 6"></path>
-                            </svg>
-                        </button>
-
-                        <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-                    </form>
-                </div>
-
-                <aside class="contact-side">
-                    <section class="contact-card reveal-up" aria-labelledby="contactInfoTitle">
-                        <h2 id="contactInfoTitle">Contact Pestora</h2>
-
-                        <div class="contact-links">
-                            <a class="contact-link" href="tel:+18775550199" data-phone-link>
-                                <span class="contact-link-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24">
-                                        <path
-                                            d="M6.6 10.8c1.5 3 3.7 5.1 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.2.5 1.2 1.2v3.5c0 .7-.5 1.2-1.2 1.2C10.4 21.9 2.1 13.6 2.1 3.4c0-.7.5-1.2 1.2-1.2h3.5c.7 0 1.2.5 1.2 1.2 0 1.4.2 2.7.6 4 .1.4 0 .8-.3 1.2l-1.7 2.2Z">
-                                        </path>
-                                    </svg>
-                                </span>
-
-                                <span>
-                                    <strong>Phone</strong>
-                                    <span data-phone-text>(877) 555-0199</span>
-                                </span>
-                            </a>
-
-                            <a class="contact-link" href="mailto:hello@pestora.com" data-email-link>
-                                <span class="contact-link-icon" aria-hidden="true">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M4 6h16v12H4V6Z"></path>
-                                        <path d="m4 7 8 6 8-6"></path>
-                                    </svg>
-                                </span>
-
-                                <span>
-                                    <strong>Email</strong>
-                                    <span data-email-text>hello@pestora.com</span>
-                                </span>
-                            </a>
-                        </div>
-
-                        <div class="contact-platform-note">
-                            <strong>Platform note</strong>
-                            <span>
-                                Pestora helps homeowners connect with independent local provider options. Pestora does
-                                not perform pest control services directly.
-                            </span>
-                        </div>
-                    </section>
-
-                    <section class="contact-map-card reveal-up" aria-labelledby="mapCardTitle">
-                        <h2 id="mapCardTitle">Platform address</h2>
-
-                        <div class="abstract-map" aria-label="Abstract USA service area map">
-                            <div class="map-address-card">
-                                <strong data-company-name>Pestora</strong>
-                                <span data-address-text>1254 Market St, Ste 200, Denver, CO 80202, USA</span>
-                            </div>
-                        </div>
-                    </section>
-                </aside>
+            <div class="contact-sentence-line">
+                <span>I need help comparing providers for</span>
+                <strong>pest concern</strong>
+                <span>near</span>
+                <strong>ZIP code</strong>
+                <span>with timing around</span>
+                <strong>preferred date</strong>
+                <span>and notes about</span>
+                <strong>property details</strong>
             </div>
 
+            <p class="contact-sentence-note">
+                Pestora does not perform pest control services directly. Homeowners verify provider details before
+                hiring.
+            </p>
+        </div>
+    </div>
+
+    <div class="torn-paper-bottom" aria-hidden="true"></div>
+</section>
+
+<section class="contact-main contact-request-lab paper-section" aria-labelledby="requestFormTitle">
+    <div class="contact-main-roach contact-main-roach-one" aria-hidden="true">
+        <svg viewBox="0 0 96 96">
+            <path d="M27 52c0-17 9-31 21-31s21 14 21 31-9 31-21 31-21-14-21-31Z"></path>
+            <path d="M34 31c8 6 20 6 28 0"></path>
+            <path d="M48 22v60"></path>
+            <path d="M31 40 12 28M29 51 8 49M31 62 13 75"></path>
+            <path d="M65 40l19-12M67 51l21-2M65 62l18 13"></path>
+            <path d="M42 22 30 8M54 22 68 8"></path>
+        </svg>
+    </div>
+
+    <div class="contact-main-roach contact-main-roach-two" aria-hidden="true">
+        <svg viewBox="0 0 96 96">
+            <path d="M27 52c0-17 9-31 21-31s21 14 21 31-9 31-21 31-21-14-21-31Z"></path>
+            <path d="M34 31c8 6 20 6 28 0"></path>
+            <path d="M48 22v60"></path>
+            <path d="M31 40 12 28M29 51 8 49M31 62 13 75"></path>
+            <path d="M65 40l19-12M67 51l21-2M65 62l18 13"></path>
+            <path d="M42 22 30 8M54 22 68 8"></path>
+        </svg>
+    </div>
+
+    <div class="container-wide contact-lab-grid">
+        <div class="contact-lab-copy reveal-up">
+            <p class="eyebrow">Request details</p>
+
+            <h2 id="requestFormTitle">
+                A compact request desk for comparing provider options.
+            </h2>
+
+            <p>
+                Share only the details that help organize your request: pest type, ZIP code, timing, and notes.
+                Pestora stays focused on matching, not direct pest control work.
+            </p>
+
+            <div class="contact-lab-lines" aria-label="Request reminders">
+                <span>Independent providers</span>
+                <span>No Pestora technicians</span>
+                <span>Verify before hiring</span>
+            </div>
+        </div>
+
+        <div class="form-card contact-form-card contact-form-mini reveal-up" id="requestForm">
+            <form class="request-form" data-request-form novalidate>
+                <div class="contact-mini-form-head">
+                    <span>Start request</span>
+                    <strong>Tell us what to compare</strong>
+                </div>
+
+                <div class="form-grid contact-mini-grid">
+                    <div class="form-field">
+                        <label for="contactFullName">Full Name</label>
+                        <input id="contactFullName" name="fullName" type="text" placeholder="Your name"
+                            autocomplete="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactPhone">Phone Number</label>
+                        <input id="contactPhone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel"
+                            required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactEmail">Email Address</label>
+                        <input id="contactEmail" name="email" type="email" placeholder="you@example.com"
+                            autocomplete="email" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactZip">ZIP Code</label>
+                        <input id="contactZip" name="zip" type="text" inputmode="numeric" placeholder="ZIP code"
+                            autocomplete="postal-code" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactPestType">Pest Problem</label>
+                    <select id="contactPestType" name="pestType" required>
+                        <option value="" disabled selected>Select pest type</option>
+                        <option value="ants">Ants</option>
+                        <option value="cockroaches">Cockroaches</option>
+                        <option value="termites">Termites</option>
+                        <option value="rodents">Rodents</option>
+                        <option value="mosquitoes">Mosquitoes</option>
+                        <option value="spiders">Spiders</option>
+                        <option value="bed-bugs">Bed bugs</option>
+                        <option value="outdoor-pests">Other outdoor pests</option>
+                    </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="contactTiming">Timing</label>
+                        <select id="contactTiming" name="timing" required>
+                            <option value="" disabled selected>Select timing</option>
+                            <option value="as-soon-as-available">As soon as available</option>
+                            <option value="this-week">This week</option>
+                            <option value="next-week">Next week</option>
+                            <option value="planning-ahead">Planning ahead</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field form-field-full">
+                        <label for="contactMessage">Project Notes</label>
+                        <textarea id="contactMessage" name="message"
+                            placeholder="Pest concern, property type, timing, and what you want to compare."
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="contact-mini-checks">
+                    <label class="form-check">
+                        <input type="checkbox" name="platformConsent" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>Pestora is a matching platform and does not perform pest control services directly.</span>
+                    </label>
+
+                    <label class="form-check">
+                        <input type="checkbox" name="verificationConsent" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>Homeowners should verify licensing, insurance, pricing, scope, and provider terms.</span>
+                    </label>
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    <span>Submit Request</span>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6"></path>
+                    </svg>
+                </button>
+
+                <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <aside class="contact-lab-side reveal-up" aria-label="Pestora contact and address">
+            <div class="contact-lab-photo">
+                <div class="contact-lab-photo-note">
+                    Compare locally.<br>
+                    Choose independently.
+                </div>
+            </div>
+
+            <div class="contact-lab-contact">
+                <a href="tel:+18775550199" data-phone-link>
+                    <span>Phone</span>
+                    <strong data-phone-text>(877) 555-0199</strong>
+                </a>
+
+                <a href="mailto:hello@pestora.com" data-email-link>
+                    <span>Email</span>
+                    <strong data-email-text>hello@pestora.com</strong>
+                </a>
+
+                <div class="contact-lab-address">
+                    <span>Platform address</span>
+                    <strong data-address-text>1254 Market St, Ste 200, Denver, CO 80202, USA</strong>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="torn-paper-bottom" aria-hidden="true"></div>
+</section>
+
+ 
+
+        <section class="contact-after-submit" aria-labelledby="contactAfterSubmitTitle">
+            <div class="torn-paper-top" aria-hidden="true"></div>
+        
+            <div class="container-wide contact-after-submit-grid">
+                <div class="contact-after-submit-copy reveal-up">
+                    <p class="eyebrow">After you submit</p>
+        
+                    <h2 id="contactAfterSubmitTitle">
+                        Your request becomes easier to review, compare, and verify.
+                    </h2>
+        
+                    <p>
+                        Pestora does not perform pest control work directly. The goal is to organize your request so provider
+                        conversations can start with clearer details.
+                    </p>
+                </div>
+        
+                <div class="contact-after-rail reveal-up" aria-label="After submit flow">
+                    <div class="contact-after-row">
+                        <strong>01</strong>
+                        <span>Request details are organized by pest category, ZIP code, timing, and property notes.</span>
+                    </div>
+        
+                    <div class="contact-after-row">
+                        <strong>02</strong>
+                        <span>Independent provider options may be compared by availability, scope, and quote process.</span>
+                    </div>
+        
+                    <div class="contact-after-row">
+                        <strong>03</strong>
+                        <span>Homeowners verify licensing, insurance, pricing, service terms, and final details.</span>
+                    </div>
+                </div>
+            </div>
+        
             <div class="torn-paper-bottom" aria-hidden="true"></div>
         </section>
 

@@ -162,6 +162,11 @@ window.SITE_CONFIG = {
                     question: "Can provider availability vary by area?",
                     answer:
                         "Yes. Provider availability may vary by ZIP code, pest type, timing, and service category."
+                },
+                {
+                    question: "Do I need to identify the exact pest before submitting a request?",
+                    answer:
+                        "No. Share what you’re noticing (where activity is happening, timing, and any property notes). Independent providers can explain scope and confirm details during the quote or inspection process."
                 }
             ]
         },
@@ -208,6 +213,11 @@ window.SITE_CONFIG = {
                     question: "Are termite quotes always the same?",
                     answer:
                         "No. Pricing and quote structure can vary based on property details, pest concern, provider process, and local availability."
+                },
+                {
+                    question: "Why do some providers require an inspection before giving an estimate?",
+                    answer:
+                        "Some providers may need an inspection step to confirm property conditions, documentation needs, and service scope before explaining pricing or treatment category details."
                 }
             ]
         },
@@ -254,6 +264,11 @@ window.SITE_CONFIG = {
                     question: "Can I choose my own provider?",
                     answer:
                         "Yes. Homeowners remain in control and should choose independently after reviewing provider details."
+                },
+                {
+                    question: "What does \"exclusion\" mean in rodent service categories?",
+                    answer:
+                        "Exclusion generally refers to identifying and sealing potential entry points to help reduce future activity. What is included, how it is priced, and what follow-up terms apply can vary by independent provider."
                 }
             ]
         },
@@ -300,6 +315,11 @@ window.SITE_CONFIG = {
                     question: "What should I verify before choosing?",
                     answer:
                         "Verify provider licensing, insurance, pricing, service scope, scheduling, and any recurring service terms."
+                },
+                {
+                    question: "Is mosquito service usually one-time or recurring?",
+                    answer:
+                        "It depends on the provider, location, season, and service category. Some providers may offer one-time visits, while others may explain recurring visit options and timing."
                 }
             ]
         }

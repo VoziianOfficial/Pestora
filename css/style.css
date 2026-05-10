@@ -1629,7 +1629,8 @@ address {
 
     .section-heading,
     .section-heading-left {
-        text-align: left;
+        text-align: center;
+        margin-inline: auto;
     }
 
     .section-heading p,
@@ -1732,6 +1733,183 @@ address {
 
     .policy-banner-actions {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================
+   PESTORA — RESPONSIVE SECTION HEADING CENTERING
+   Tablet/mobile only; avoid centering body content blocks.
+   ========================================================== */
+
+@media (max-width: 980px) {
+    :is(
+        .section-heading,
+        .section-heading-left,
+        .home-hero-copy,
+        .home-cta-copy,
+        .services-hero-copy,
+        .services-intro-copy,
+        .provider-comparison-copy,
+        .contact-hero-copy,
+        .contact-form-head,
+        .service-detail-copy,
+        .service-factors-copy,
+        .service-compare-copy,
+        .service-page-faq-copy,
+        .service-final-inner > div:first-child,
+        .about-hero-copy,
+        .about-model-copy,
+        .about-paper-break-inner,
+        .about-strip-copy,
+        .about-values-copy,
+        .legal-hero-inner,
+        .pest-category-heading
+    ) {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    :is(
+        .section-heading,
+        .section-heading-left,
+        .home-hero-copy,
+        .home-cta-copy,
+        .services-hero-copy,
+        .services-intro-copy,
+        .provider-comparison-copy,
+        .contact-hero-copy,
+        .contact-form-head,
+        .service-detail-copy,
+        .service-factors-copy,
+        .service-compare-copy,
+        .service-page-faq-copy,
+        .service-final-inner > div:first-child,
+        .about-hero-copy,
+        .about-model-copy,
+        .about-paper-break-inner,
+        .about-strip-copy,
+        .about-values-copy,
+        .legal-hero-inner,
+        .pest-category-heading
+    )
+        > :is(h1, h2) {
+        max-width: 760px;
+        margin-inline: auto;
+        text-wrap: balance;
+    }
+
+    :is(
+        .section-heading,
+        .section-heading-left,
+        .home-hero-copy,
+        .home-cta-copy,
+        .services-hero-copy,
+        .services-intro-copy,
+        .provider-comparison-copy,
+        .contact-hero-copy,
+        .contact-form-head,
+        .service-detail-copy,
+        .service-factors-copy,
+        .service-compare-copy,
+        .service-page-faq-copy,
+        .service-final-inner > div:first-child,
+        .about-hero-copy,
+        .about-model-copy,
+        .about-paper-break-inner,
+        .about-strip-copy,
+        .about-values-copy,
+        .legal-hero-inner,
+        .pest-category-heading
+    )
+        > :is(p, .lead) {
+        max-width: 640px;
+        margin-inline: auto;
+    }
+
+    /* These wrappers include lists; center only their heading blocks. */
+    .home-about-copy > :is(.eyebrow, h2, .lead) {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .home-about-copy > h2 {
+        max-width: 760px;
+        text-wrap: balance;
+    }
+
+    .home-about-copy > .lead {
+        max-width: 640px;
+    }
+
+    .service-overview-copy > :is(.eyebrow, h2, .lead) {
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .service-overview-copy > h2 {
+        max-width: 760px;
+        text-wrap: balance;
+    }
+
+    .service-overview-copy > .lead {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 760px) {
+    :is(
+        .section-heading,
+        .section-heading-left,
+        .home-hero-copy,
+        .home-cta-copy,
+        .services-hero-copy,
+        .services-intro-copy,
+        .provider-comparison-copy,
+        .contact-hero-copy,
+        .contact-form-head,
+        .service-detail-copy,
+        .service-factors-copy,
+        .service-compare-copy,
+        .service-page-faq-copy,
+        .service-final-inner > div:first-child,
+        .about-hero-copy,
+        .about-model-copy,
+        .about-paper-break-inner,
+        .about-strip-copy,
+        .about-values-copy,
+        .legal-hero-inner,
+        .pest-category-heading
+    ) {
+        justify-items: center;
+    }
+
+    :is(
+        .section-heading,
+        .section-heading-left,
+        .home-hero-copy,
+        .home-cta-copy,
+        .services-hero-copy,
+        .services-intro-copy,
+        .provider-comparison-copy,
+        .contact-hero-copy,
+        .contact-form-head,
+        .service-detail-copy,
+        .service-factors-copy,
+        .service-compare-copy,
+        .service-page-faq-copy,
+        .service-final-inner > div:first-child,
+        .about-hero-copy,
+        .about-model-copy,
+        .about-paper-break-inner,
+        .about-strip-copy,
+        .about-values-copy,
+        .legal-hero-inner,
+        .pest-category-heading,
+        .home-about-copy,
+        .service-overview-copy
+    )
+        > :is(.eyebrow, .kicker) {
+        margin-bottom: 0.8rem;
     }
 }
 
@@ -2758,7 +2936,7 @@ address {
 
 /* Remove outer section photo layers */
 .services-cta::before,
-.services-cta::after,
+.services-cta::after, 
 .about-cta::before,
 .about-cta::after,
 .service-final-cta::before,
@@ -2783,4 +2961,113 @@ address {
 .service-final-cta,
 .legal-cta {
     padding-block: clamp(2.4rem, 5vw, 4rem) !important;
+}
+
+/* ==========================================================
+   CTA ACTIONS — TABLET / MOBILE BUTTON ALIGNMENT
+   About / Services / Service pages / Legal
+   ========================================================== */
+
+/* Tablet: compact, one line, no breaking */
+@media (min-width: 761px) and (max-width: 1120px) {
+
+    .about-cta-actions,
+    .services-cta-actions,
+    .service-final-actions,
+    .legal-cta-actions {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.55rem;
+        width: auto;
+        min-width: fit-content;
+    }
+
+    .about-cta-actions .btn,
+    .services-cta-actions .btn,
+    .service-final-actions .btn,
+    .legal-cta-actions .btn {
+        width: auto !important;
+        min-width: 150px;
+        min-height: 40px;
+        padding: 0.62rem 0.9rem;
+        font-size: 0.78rem;
+        white-space: nowrap;
+        gap: 0.45rem;
+    }
+
+    .about-cta-actions .btn svg,
+    .services-cta-actions .btn svg,
+    .service-final-actions .btn svg,
+    .legal-cta-actions .btn svg {
+        width: 0.92rem;
+        height: 0.92rem;
+    }
+
+    .about-cta-inner,
+    .services-cta-inner,
+    .service-final-inner,
+    .legal-cta-inner {
+        gap: clamp(1rem, 2vw, 1.6rem) !important;
+    }
+}
+
+/* Smaller tablets: if text area is tight, keep buttons in one clean row under text */
+@media (min-width: 761px) and (max-width: 920px) {
+
+    .about-cta-inner,
+    .services-cta-inner,
+    .service-final-inner,
+    .legal-cta-inner {
+        grid-template-columns: 1fr !important;
+    }
+
+    .about-cta-actions,
+    .services-cta-actions,
+    .service-final-actions,
+    .legal-cta-actions {
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile: equal buttons, aligned evenly across the section */
+@media (max-width: 760px) {
+
+    .about-cta-actions,
+    .services-cta-actions,
+    .service-final-actions,
+    .legal-cta-actions {
+        display: grid !important;
+        grid-template-columns: 1fr;
+        gap: 0.65rem;
+        width: 100%;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+
+    .about-cta-actions .btn,
+    .services-cta-actions .btn,
+    .service-final-actions .btn,
+    .legal-cta-actions .btn {
+        width: 100% !important;
+        min-height: 46px;
+        padding: 0.72rem 1rem;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.84rem;
+    }
+}
+
+/* Very small mobile: keep buttons comfortable */
+@media (max-width: 420px) {
+
+    .about-cta-actions .btn,
+    .services-cta-actions .btn,
+    .service-final-actions .btn,
+    .legal-cta-actions .btn {
+        min-height: 44px;
+        padding-inline: 0.85rem;
+        font-size: 0.8rem;
+    }
 }
