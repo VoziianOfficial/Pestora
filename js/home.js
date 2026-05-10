@@ -72,9 +72,7 @@
 
         if (!items.length) return;
 
-        const duplicatedItems = [...items, ...items];
-
-        track.innerHTML = duplicatedItems.map(createCard).join("");
+        track.innerHTML = items.map(createCard).join("");
 
         controls.innerHTML = items
             .map((_, index) => {
@@ -90,40 +88,106 @@
             .join("");
 
         const dots = qsa("[data-testimonial-dot]", controls);
-        let currentIndex = 0;
-        let currentX = 0;
-        let targetX = 0;
-        let cardWidth = 0;
-        let fullWidth = 0;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let realCount = items.length;
+        let loopPad = 0;
+        let index = 0;
         let isPaused = false;
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartTranslate = 0;
+        let translateX = 0;
         let animationFrame = null;
         let lastTime = performance.now();
+        let autoplayTimer = 0;
 
-        const measure = () => {
-            const firstCard = qs(".testimonial-card", track);
-            if (!firstCard) return;
+        const getSlides = () => Array.from(track.children);
 
-            const styles = window.getComputedStyle(track);
-            const gap = parseFloat(styles.columnGap || styles.gap || "0");
+        const getLoopPad = () => {
+            const cols = Number(getComputedStyle(track).getPropertyValue("--testimonial-cols")) || 3;
+            return Math.min(realCount, Math.max(1, cols));
+        };
 
-            cardWidth = firstCard.getBoundingClientRect().width + gap;
-            fullWidth = cardWidth * items.length;
-            targetX = -currentIndex * cardWidth;
-            currentX = targetX;
-            track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        const setTransition = (enabled) => {
+            track.style.transition = enabled ? "transform 420ms cubic-bezier(.2, .8, .2, 1)" : "none";
+        };
+
+        const setTranslateByIndex = () => {
+            const slides = getSlides();
+            const slide = slides[index];
+            if (!slide) return;
+            translateX = -slide.offsetLeft;
+            track.style.transform = `translate3d(${translateX}px, 0, 0)`;
         };
 
         const updateDots = () => {
-            const activeIndex = Math.abs(Math.round(currentX / cardWidth)) % items.length;
-
-            dots.forEach((dot, index) => {
-                dot.classList.toggle("is-active", index === activeIndex);
+            const activeRealIndex = ((index - loopPad) % realCount + realCount) % realCount;
+            dots.forEach((dot, dotIndex) => {
+                dot.classList.toggle("is-active", dotIndex === activeRealIndex);
             });
         };
 
-        const goTo = (index) => {
-            currentIndex = index;
-            targetX = -currentIndex * cardWidth;
+        const buildLoop = () => {
+            loopPad = getLoopPad();
+
+            // Remove existing clones
+            qsa("[data-clone]", track).forEach((node) => node.remove());
+
+            if (realCount <= loopPad) {
+                index = 0;
+                setTransition(false);
+                setTranslateByIndex();
+                updateDots();
+                return;
+            }
+
+            const originals = getSlides();
+            const headClones = originals.slice(0, loopPad).map((node) => node.cloneNode(true));
+            const tailClones = originals.slice(-loopPad).map((node) => node.cloneNode(true));
+
+            headClones.forEach((node) => node.setAttribute("data-clone", "true"));
+            tailClones.forEach((node) => node.setAttribute("data-clone", "true"));
+
+            tailClones.forEach((node) => track.insertBefore(node, track.firstChild));
+            headClones.forEach((node) => track.appendChild(node));
+
+            index = loopPad;
+            setTransition(false);
+            setTranslateByIndex();
+            updateDots();
+        };
+
+        const normalizeLoopAfterTransition = () => {
+            if (realCount <= loopPad) return;
+
+            if (index >= loopPad + realCount) {
+                index = loopPad;
+                setTransition(false);
+                setTranslateByIndex();
+            } else if (index < loopPad) {
+                index = loopPad + realCount - 1;
+                setTransition(false);
+                setTranslateByIndex();
+            }
+        };
+
+        const goToReal = (realIndex) => {
+            if (!Number.isFinite(realIndex)) return;
+
+            isPaused = true;
+            setTransition(true);
+            index = realIndex + loopPad;
+            setTranslateByIndex();
+            updateDots();
+        };
+
+        const step = (direction, pause = true) => {
+            if (realCount <= 1) return;
+            if (pause) isPaused = true;
+            setTransition(true);
+            index += direction;
+            setTranslateByIndex();
             updateDots();
         };
 
@@ -131,28 +195,28 @@
             const delta = Math.min(40, time - lastTime);
             lastTime = time;
 
-            if (!isPaused && cardWidth > 0 && fullWidth > 0) {
-                targetX -= delta * 0.035;
+            if (prefersReducedMotion) {
+                animationFrame = window.requestAnimationFrame(tick);
+                return;
             }
 
-            currentX += (targetX - currentX) * 0.08;
-
-            if (Math.abs(currentX) >= fullWidth) {
-                currentX += fullWidth;
-                targetX += fullWidth;
-                currentIndex = Math.abs(Math.round(currentX / cardWidth)) % items.length;
+            if (!isPaused && !isDragging && realCount > 1) {
+                autoplayTimer += delta;
+                if (autoplayTimer >= 4500) {
+                    autoplayTimer = 0;
+                    step(1, false);
+                }
+            } else {
+                autoplayTimer = 0;
             }
-
-            track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-            updateDots();
 
             animationFrame = window.requestAnimationFrame(tick);
         };
 
         dots.forEach((dot) => {
             dot.addEventListener("click", () => {
-                const index = Number(dot.dataset.testimonialDot || 0);
-                goTo(index);
+                const realIndex = Number(dot.dataset.testimonialDot || 0);
+                goToReal(realIndex);
             });
         });
 
@@ -172,9 +236,89 @@
             isPaused = false;
         });
 
-        window.addEventListener("resize", measure);
+        const viewport = qs(".testimonial-viewport", slider) || slider;
+        const shouldPause = () => slider.matches(":hover") || slider.contains(doc.activeElement);
 
-        measure();
+        const onPointerDown = (event) => {
+            if (event.pointerType === "mouse" && event.button !== 0) return;
+            isDragging = true;
+            isPaused = true;
+            dragStartX = event.clientX;
+            dragStartTranslate = translateX;
+            setTransition(false);
+            viewport.setPointerCapture?.(event.pointerId);
+        };
+
+        const onPointerMove = (event) => {
+            if (!isDragging) return;
+            const dx = event.clientX - dragStartX;
+            translateX = dragStartTranslate + dx;
+
+            const slides = getSlides();
+            if (slides.length) {
+                const maxTranslate = 0;
+                const minTranslate = -slides[slides.length - 1].offsetLeft;
+                translateX = Math.max(minTranslate, Math.min(maxTranslate, translateX));
+            }
+            track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+        };
+
+        const snapToNearest = () => {
+            const slides = getSlides();
+            if (!slides.length) return;
+
+            const currentOffset = -translateX;
+            let nearest = 0;
+            let nearestDistance = Infinity;
+
+            slides.forEach((slide, slideIndex) => {
+                const d = Math.abs(slide.offsetLeft - currentOffset);
+                if (d < nearestDistance) {
+                    nearestDistance = d;
+                    nearest = slideIndex;
+                }
+            });
+
+            index = nearest;
+            setTransition(true);
+            setTranslateByIndex();
+            updateDots();
+        };
+
+        const onPointerUp = () => {
+            if (!isDragging) return;
+            isDragging = false;
+            snapToNearest();
+        };
+
+        viewport.addEventListener("pointerdown", onPointerDown);
+        viewport.addEventListener("pointermove", onPointerMove);
+        viewport.addEventListener("pointerup", onPointerUp);
+        viewport.addEventListener("pointercancel", onPointerUp);
+
+        viewport.addEventListener(
+            "keydown",
+            (event) => {
+                if (event.key === "ArrowRight") step(1);
+                if (event.key === "ArrowLeft") step(-1);
+            },
+            { passive: true }
+        );
+
+        track.addEventListener("transitionend", () => {
+            normalizeLoopAfterTransition();
+            updateDots();
+            isPaused = shouldPause();
+        });
+
+        const rebuild = () => {
+            realCount = items.length;
+            buildLoop();
+        };
+
+        window.addEventListener("resize", rebuild);
+
+        rebuild();
 
         animationFrame = window.requestAnimationFrame(tick);
 

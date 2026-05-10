@@ -1479,3 +1479,343 @@
     content: none !important;
     display: none !important;
 }
+
+/* ==========================================================
+   CONTACT — SIMPLE USA SERVICE MAP SECTION
+   No API, no card-in-card, clean abstract map
+   ========================================================== */
+
+.contact-service-map {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5.4rem);
+    background:
+        radial-gradient(circle at 14% 18%, rgba(255, 210, 46, 0.13), transparent 18rem),
+        radial-gradient(circle at 90% 78%, rgba(29, 22, 14, 0.06), transparent 22rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.contact-service-map-grid {
+    display: grid;
+    grid-template-columns: minmax(420px, 1fr) minmax(0, 0.78fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+
+.contact-service-map-visual {
+    position: relative;
+    min-height: clamp(340px, 36vw, 500px);
+    overflow: hidden;
+    border: 1px solid rgba(216, 196, 157, 0.8);
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 45% 48%, rgba(255, 210, 46, 0.2), transparent 8rem),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.36) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.36) 1px, transparent 1px),
+        linear-gradient(135deg, #ead7b8, #fff7e8);
+    background-size: auto, 34px 34px, 34px 34px, auto;
+    box-shadow: var(--shadow-card);
+}
+
+.contact-service-map-visual::before {
+    content: "USA";
+    position: absolute;
+    right: clamp(1rem, 3vw, 2rem);
+    top: clamp(0.8rem, 2vw, 1.4rem);
+    color: rgba(29, 22, 14, 0.07);
+    font-family: var(--font-heading);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.contact-map-shape {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    width: min(78%, 560px);
+    aspect-ratio: 1.75;
+    background:
+        radial-gradient(circle at 38% 54%, rgba(255, 210, 46, 0.95) 0 5px, transparent 6px),
+        linear-gradient(135deg, rgba(29, 22, 14, 0.23), rgba(29, 22, 14, 0.1));
+    clip-path: polygon(4% 42%,
+            12% 28%,
+            27% 30%,
+            38% 14%,
+            54% 22%,
+            70% 18%,
+            88% 36%,
+            95% 56%,
+            83% 72%,
+            63% 67%,
+            46% 80%,
+            30% 67%,
+            14% 72%);
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 22px 34px rgba(29, 22, 14, 0.14));
+}
+
+.contact-map-pin {
+    position: absolute;
+    left: 41%;
+    top: 45%;
+    width: 34px;
+    height: 34px;
+    border-radius: 999px 999px 999px 0;
+    background: var(--color-accent);
+    border: 4px solid var(--color-paper);
+    box-shadow:
+        0 16px 32px rgba(29, 22, 14, 0.24),
+        0 0 0 10px rgba(255, 210, 46, 0.15);
+    transform: rotate(-45deg);
+}
+
+.contact-map-pin span {
+    position: absolute;
+    inset: 8px;
+    border-radius: 999px;
+    background: var(--color-dark);
+}
+
+.contact-map-label {
+    position: absolute;
+    left: clamp(1rem, 3vw, 1.6rem);
+    bottom: clamp(1rem, 3vw, 1.6rem);
+    max-width: min(380px, calc(100% - 2rem));
+    padding-top: 1rem;
+    border-top: 1px solid rgba(123, 106, 85, 0.28);
+}
+
+.contact-map-label strong {
+    display: block;
+    color: var(--color-heading);
+    font-size: 0.95rem;
+    font-weight: 950;
+}
+
+.contact-map-label span {
+    display: block;
+    margin-top: 0.18rem;
+    color: var(--color-muted);
+    font-size: 0.86rem;
+    line-height: 1.45;
+}
+
+.contact-service-map-copy {
+    max-width: 620px;
+}
+
+.contact-service-map-copy p:not(.eyebrow) {
+    margin-top: 1rem;
+    color: var(--color-muted);
+    line-height: 1.72;
+}
+
+.contact-map-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contact-service-map-visual:hover .contact-map-shape {
+        transform: translate(-50%, -50%) scale(1.025) rotate(-1deg);
+    }
+
+    .contact-service-map-visual:hover .contact-map-pin {
+        transform: rotate(-45deg) translateY(-5px);
+        box-shadow:
+            0 22px 40px rgba(29, 22, 14, 0.28),
+            0 0 0 12px rgba(255, 210, 46, 0.18);
+    }
+
+    .contact-map-shape,
+    .contact-map-pin {
+        transition:
+            transform 420ms ease,
+            box-shadow 320ms ease;
+    }
+}
+
+@media (max-width: 980px) {
+    .contact-service-map-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-service-map-copy {
+        max-width: 760px;
+        text-align: center;
+        margin-inline: auto;
+    }
+
+    .contact-service-map-copy .eyebrow {
+        margin-inline: auto;
+    }
+
+    .contact-service-map-copy p:not(.eyebrow) {
+        margin-inline: auto;
+    }
+
+    .contact-map-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .contact-service-map {
+        padding-block: 3rem;
+    }
+
+    .contact-service-map-visual {
+        min-height: 300px;
+        border-radius: 24px;
+    }
+
+    .contact-map-actions {
+        display: grid;
+    }
+
+    .contact-map-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .contact-service-map-visual {
+        min-height: 270px;
+    }
+
+    .contact-map-shape {
+        width: 88%;
+    }
+
+    .contact-map-pin {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* Clickable map visual */
+.contact-map-open-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contact-map-open-label {
+    position: absolute;
+    right: clamp(1rem, 3vw, 1.6rem);
+    bottom: clamp(1rem, 3vw, 1.6rem);
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid rgba(29, 22, 14, 0.16);
+    border-radius: 999px;
+    color: var(--color-dark);
+    background: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 950;
+    line-height: 1;
+    box-shadow: 0 14px 28px rgba(29, 22, 14, 0.16);
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition);
+}
+
+.contact-map-open-link:hover .contact-map-open-label {
+    transform: translateY(-3px);
+    background: var(--color-accent-hover);
+    box-shadow: 0 18px 36px rgba(29, 22, 14, 0.22);
+}
+
+.contact-map-open-link:focus-visible {
+    outline: 3px solid rgba(255, 210, 46, 0.92);
+    outline-offset: 5px;
+}
+
+/* ==========================================================
+   CONTACT MAP — PHOTO INSIDE MAP
+   Keeps map clickable, adds premium photo background
+   ========================================================== */
+
+.contact-service-map-visual {
+    isolation: isolate;
+    background:
+        linear-gradient(90deg,
+            rgba(23, 17, 10, 0.56),
+            rgba(23, 17, 10, 0.18) 46%,
+            rgba(255, 247, 232, 0.28)),
+        linear-gradient(180deg,
+            rgba(255, 247, 232, 0.12),
+            rgba(23, 17, 10, 0.22)),
+        url("../assets/images/service-ant-cockroach.jpg") center / cover no-repeat !important;
+}
+
+/* soft paper/map overlay over photo */
+.contact-service-map-visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(255, 247, 232, 0.12) 1px, transparent 1px),
+        linear-gradient(rgba(255, 247, 232, 0.12) 1px, transparent 1px),
+        radial-gradient(circle at 42% 48%, rgba(255, 210, 46, 0.22), transparent 9rem);
+    background-size: 34px 34px, 34px 34px, auto;
+    mix-blend-mode: screen;
+}
+
+/* keep USA text above photo */
+.contact-service-map-visual::before {
+    z-index: 2;
+}
+
+/* keep abstract USA shape visible but softer */
+.contact-map-shape {
+    z-index: 3;
+    opacity: 0.82;
+    background:
+        radial-gradient(circle at 38% 54%, rgba(255, 210, 46, 0.95) 0 5px, transparent 6px),
+        linear-gradient(135deg, rgba(255, 247, 232, 0.38), rgba(255, 247, 232, 0.16)) !important;
+    filter:
+        drop-shadow(0 22px 34px rgba(0, 0, 0, 0.22)) drop-shadow(0 0 16px rgba(255, 210, 46, 0.14));
+}
+
+/* pin and labels above everything */
+.contact-map-pin {
+    z-index: 4;
+}
+
+.contact-map-label {
+    z-index: 5;
+    padding: 0.9rem;
+    border: 1px solid rgba(255, 247, 232, 0.55);
+    border-radius: 16px;
+    background: rgba(255, 247, 232, 0.82);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 16px 36px rgba(23, 17, 10, 0.18);
+}
+
+.contact-map-open-label {
+    z-index: 6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .contact-service-map-visual:hover {
+        filter: saturate(1.06) contrast(1.04);
+    }
+
+    .contact-service-map-visual:hover .contact-map-shape {
+        opacity: 0.95;
+    }
+}

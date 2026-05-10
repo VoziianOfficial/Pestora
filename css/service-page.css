@@ -632,12 +632,44 @@
         grid-template-columns: 1fr;
     }
 
+    .factor-list .factor-card {
+        position: relative;
+        gap: 0.65rem;
+        padding: 0.85rem 0.95rem;
+        padding-right: 3.4rem;
+    }
+
+    .factor-list .factor-number {
+        position: absolute;
+        top: 0.85rem;
+        right: 0.95rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.76rem;
+    }
+
     .compare-pill-list {
         grid-template-columns: 1fr;
     }
 
     .compare-pill {
         min-height: auto;
+    }
+
+    .compare-pill-list .compare-pill {
+        position: relative;
+        gap: 0.4rem;
+        padding: 0.85rem 0.95rem;
+        padding-right: 3.4rem;
+    }
+
+    .compare-pill-list .compare-pill > span {
+        position: absolute;
+        top: 0.85rem;
+        right: 0.95rem;
+        width: 32px;
+        height: 32px;
+        font-size: 0.76rem;
     }
 
     .service-page-faq-grid {

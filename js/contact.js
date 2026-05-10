@@ -151,3 +151,21 @@
         init();
     }
 })();
+
+
+/* Dynamic Google Maps link from SITE_CONFIG address */
+(function () {
+    const config = window.SITE_CONFIG;
+    const mapLinks = document.querySelectorAll("[data-map-link]");
+
+    if (!config || !config.address || !config.address.full || !mapLinks.length) return;
+
+    const address = config.address.full;
+    const query = encodeURIComponent(address);
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${query}`;
+
+    mapLinks.forEach((link) => {
+        link.href = mapsUrl;
+        link.setAttribute("aria-label", `Open ${config.companyName || "company"} address in Google Maps: ${address}`);
+    });
+})();
