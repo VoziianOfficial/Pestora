@@ -269,6 +269,40 @@
         });
     };
 
+    const normalizeConfigText = (value) => {
+        if (typeof value !== "string" || !value) return value;
+
+        const CONFIG_DEFAULTS = {
+            companyName: "Pestora",
+            companyId: "Pestora Provider Matching LLC",
+            phone: "(877) 555-0199",
+            phoneHref: "tel:+18775550199",
+            email: "hello@pestora.com",
+            emailHref: "mailto:hello@pestora.com",
+            addressFull: "1254 Market St, Ste 200, Denver, CO 80202, USA"
+        };
+
+        const replacements = [
+            [CONFIG_DEFAULTS.companyId, config.companyId],
+            [CONFIG_DEFAULTS.addressFull, config.address?.full],
+            [CONFIG_DEFAULTS.phoneHref, config.phoneHref],
+            [CONFIG_DEFAULTS.emailHref, `mailto:${config.email}`],
+            [CONFIG_DEFAULTS.phone, config.phone],
+            [CONFIG_DEFAULTS.email, config.email],
+            [CONFIG_DEFAULTS.companyName, config.companyName]
+        ]
+            .filter(([from, to]) => typeof from === "string" && from.length && typeof to === "string" && to.length)
+            .sort((a, b) => b[0].length - a[0].length);
+
+        let next = value;
+        for (const [from, to] of replacements) {
+            if (!next.includes(from)) continue;
+            next = next.split(from).join(to);
+        }
+
+        return next;
+    };
+
     const updateMapLinks = () => {
         const addressFull = config.address?.full;
         if (!addressFull) return;
@@ -280,6 +314,25 @@
             element.setAttribute("href", href);
             element.setAttribute("aria-label", aria);
         });
+    };
+
+    const applyGlobalConfigReplacements = () => {
+        replaceHardcodedConfigTokens();
+        updateMapLinks();
+
+        const normalizedTitle = normalizeConfigText(doc.title);
+        if (typeof normalizedTitle === "string" && normalizedTitle !== doc.title) {
+            doc.title = normalizedTitle;
+        }
+
+        const description = qs('meta[name="description"]');
+        if (description) {
+            const current = description.getAttribute("content") || "";
+            const normalized = normalizeConfigText(current);
+            if (typeof normalized === "string" && normalized !== current) {
+                description.setAttribute("content", normalized);
+            }
+        }
     };
 
     const replaceHardcodedConfigTokens = () => {
@@ -366,7 +419,7 @@
         }
 
         if (meta.title) {
-            doc.title = meta.title;
+            doc.title = normalizeConfigText(meta.title);
         }
 
         let description = qs('meta[name="description"]');
@@ -377,7 +430,7 @@
             doc.head.appendChild(description);
         }
 
-        description.setAttribute("content", meta.description || "");
+        description.setAttribute("content", normalizeConfigText(meta.description || ""));
     };
 
     const buildNavigation = (mode = "desktop") => {
@@ -904,8 +957,8 @@
             },
             {
                 root: null,
-                threshold: 0.14,
-                rootMargin: "0px 0px -8% 0px"
+                threshold: 0.01,
+                rootMargin: "0px 0px 18% 0px"
             }
         );
         }
@@ -990,8 +1043,6 @@
         injectHeader();
         injectFooter();
         populateConfigValues();
-        replaceHardcodedConfigTokens();
-        updateMapLinks();
 
         renderPestCategories();
         renderServiceCards();
@@ -1001,8 +1052,7 @@
         renderPolicyBanner();
 
         populateConfigValues();
-        replaceHardcodedConfigTokens();
-        updateMapLinks();
+        applyGlobalConfigReplacements();
 
         initMobileMenu();
         initFaqAccordion();

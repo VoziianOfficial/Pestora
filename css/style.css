@@ -1531,8 +1531,8 @@ address {
     opacity: 0;
     transform: translateY(18px);
     transition:
-        opacity 620ms ease,
-        transform 620ms cubic-bezier(.2, .8, .2, 1);
+        opacity 260ms ease,
+        transform 260ms cubic-bezier(.2, .8, .2, 1);
 }
 
 .reveal-up.is-visible,
@@ -3294,3 +3294,76 @@ address {
     background: var(--color-paper);
     font-weight: 700;
 }
+
+
+
+
+@media (hover: hover) and (pointer: fine) {
+
+    .hero-paper-card:hover,
+    .home-hero .hero-paper-card:hover,
+    .hero-paper-card.reveal-up.is-visible:hover,
+    .service-detail-card:hover,
+    .service-detail-card.reveal-up.is-visible:hover {
+        transform: none !important;
+        border-color: rgba(255, 247, 232, 0.2) !important;
+        background:
+            radial-gradient(circle at 18% 0%, rgba(255, 210, 46, 0.18), transparent 12rem),
+            rgba(23, 17, 10, 0.38) !important;
+        box-shadow: var(--shadow-deep) !important;
+        filter: none !important;
+    }
+
+    .hero-paper-card:hover::before,
+    .home-hero .hero-paper-card:hover::before,
+    .service-detail-card:hover::before {
+        transform: rotate(6deg) !important;
+        background: rgba(255, 210, 46, 0.78) !important;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+    }
+
+    .hero-paper-card:hover h2,
+    .hero-paper-card:hover p,
+    .hero-paper-card:hover li,
+    .hero-paper-card:hover span,
+    .service-detail-card:hover h2,
+    .service-detail-card:hover p,
+    .service-detail-card:hover span {
+        transform: none !important;
+        color: inherit !important;
+        text-shadow: none !important;
+    }
+
+    .service-detail-card:hover .service-detail-card-icon {
+        transform: none !important;
+        color: var(--color-dark) !important;
+        background: var(--color-accent) !important;
+        border-color: rgba(255, 210, 46, 0.5) !important;
+        box-shadow: none !important;
+    }
+
+    .service-detail-card:hover .service-detail-card-icon svg {
+        transform: none !important;
+        stroke: currentColor !important;
+        fill: none !important;
+        filter: none !important;
+    }
+}
+
+ @media (hover: hover) and (pointer: fine) {
+
+     .hero-paper-card:hover::before,
+     .home-hero .hero-paper-card:hover::before {
+         inset: 0.7rem !important;
+         width: auto !important;
+         height: auto !important;
+         right: auto !important;
+         top: auto !important;
+         transform: none !important;
+         border-radius: 20px !important;
+         background:
+             linear-gradient(180deg, rgba(255, 247, 232, 0.12), rgba(255, 247, 232, 0.04)) !important;
+         border: 1px solid rgba(255, 255, 255, 0.13) !important;
+         box-shadow: none !important;
+     }
+ }
