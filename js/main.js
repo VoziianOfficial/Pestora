@@ -49,6 +49,13 @@
         });
     };
 
+    const getConfigValue = (path) => {
+        return String(path || "")
+            .split(".")
+            .filter(Boolean)
+            .reduce((obj, key) => (obj ? obj[key] : undefined), config);
+    };
+
     const icon = (name) => {
         const icons = {
             phone: `
@@ -240,6 +247,112 @@
 
         qsa("[data-email-link][data-email-text]").forEach((element) => {
             element.textContent = config.email;
+        });
+
+        qsa("[data-config-text]").forEach((element) => {
+            const path = element.getAttribute("data-config-text");
+            const value = getConfigValue(path);
+            if (value === undefined || value === null) return;
+            element.textContent = String(value);
+        });
+
+        qsa("[data-config-href]").forEach((element) => {
+            const path = element.getAttribute("data-config-href");
+            let value = getConfigValue(path);
+
+            if (path === "email") {
+                value = `mailto:${config.email}`;
+            }
+
+            if (value === undefined || value === null) return;
+            element.setAttribute("href", String(value));
+        });
+    };
+
+    const updateMapLinks = () => {
+        const addressFull = config.address?.full;
+        if (!addressFull) return;
+
+        const href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressFull)}`;
+        const aria = `Open ${config.companyName} address in Google Maps`;
+
+        qsa("[data-map-link]").forEach((element) => {
+            element.setAttribute("href", href);
+            element.setAttribute("aria-label", aria);
+        });
+    };
+
+    const replaceHardcodedConfigTokens = () => {
+        const CONFIG_DEFAULTS = {
+            companyName: "Pestora",
+            companyId: "Pestora Provider Matching LLC",
+            phone: "(877) 555-0199",
+            phoneHref: "tel:+18775550199",
+            email: "hello@pestora.com",
+            emailHref: "mailto:hello@pestora.com",
+            addressFull: "1254 Market St, Ste 200, Denver, CO 80202, USA"
+        };
+
+        const replacements = [
+            [CONFIG_DEFAULTS.companyId, config.companyId],
+            [CONFIG_DEFAULTS.addressFull, config.address?.full],
+            [CONFIG_DEFAULTS.phoneHref, config.phoneHref],
+            [CONFIG_DEFAULTS.emailHref, `mailto:${config.email}`],
+            [CONFIG_DEFAULTS.phone, config.phone],
+            [CONFIG_DEFAULTS.email, config.email],
+            [CONFIG_DEFAULTS.companyName, config.companyName]
+        ]
+            .filter(([from, to]) => typeof from === "string" && from.length && typeof to === "string" && to.length)
+            .sort((a, b) => b[0].length - a[0].length);
+
+        const shouldSkipNode = (node) => {
+            const skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "SVG"]);
+            let current = node?.nodeType === 1 ? node : node?.parentNode;
+
+            while (current && current !== body) {
+                if (current.nodeType === 1 && skipTags.has(current.tagName)) return true;
+                current = current.parentNode;
+            }
+
+            return false;
+        };
+
+        const replaceInText = (text) => {
+            let next = text;
+            for (const [from, to] of replacements) {
+                if (!next.includes(from)) continue;
+                next = next.split(from).join(to);
+            }
+            return next;
+        };
+
+        const walker = doc.createTreeWalker(body, NodeFilter.SHOW_TEXT);
+        let textNode = walker.nextNode();
+
+        while (textNode) {
+            const value = textNode.nodeValue;
+            if (value && !shouldSkipNode(textNode)) {
+                const updated = replaceInText(value);
+                if (updated !== value) textNode.nodeValue = updated;
+            }
+            textNode = walker.nextNode();
+        }
+
+        const allowedAttrs = ["href", "aria-label", "title", "alt", "content", "placeholder"];
+        const elements = qsa("*", body);
+
+        elements.forEach((element) => {
+            if (shouldSkipNode(element)) return;
+            if (element.matches("[data-map-link]")) return;
+
+            allowedAttrs.forEach((attr) => {
+                if (!element.hasAttribute(attr)) return;
+                const value = element.getAttribute(attr);
+                if (!value) return;
+
+                const updated = replaceInText(value);
+                if (updated !== value) element.setAttribute(attr, updated);
+            });
         });
     };
 
@@ -877,6 +990,8 @@
         injectHeader();
         injectFooter();
         populateConfigValues();
+        replaceHardcodedConfigTokens();
+        updateMapLinks();
 
         renderPestCategories();
         renderServiceCards();
@@ -884,6 +999,10 @@
         renderBenefits();
         renderFaq();
         renderPolicyBanner();
+
+        populateConfigValues();
+        replaceHardcodedConfigTokens();
+        updateMapLinks();
 
         initMobileMenu();
         initFaqAccordion();

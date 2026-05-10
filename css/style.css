@@ -1750,6 +1750,7 @@ address {
         .services-hero-copy,
         .services-intro-copy,
         .provider-comparison-copy,
+        .services-faq-copy,
         .contact-hero-copy,
         .contact-form-head,
         .service-detail-copy,
@@ -1777,6 +1778,7 @@ address {
         .services-hero-copy,
         .services-intro-copy,
         .provider-comparison-copy,
+        .services-faq-copy,
         .contact-hero-copy,
         .contact-form-head,
         .service-detail-copy,
@@ -1806,6 +1808,7 @@ address {
         .services-hero-copy,
         .services-intro-copy,
         .provider-comparison-copy,
+        .services-faq-copy,
         .contact-hero-copy,
         .contact-form-head,
         .service-detail-copy,
@@ -1865,6 +1868,7 @@ address {
         .services-hero-copy,
         .services-intro-copy,
         .provider-comparison-copy,
+        .services-faq-copy,
         .contact-hero-copy,
         .contact-form-head,
         .service-detail-copy,
@@ -1891,6 +1895,7 @@ address {
         .services-hero-copy,
         .services-intro-copy,
         .provider-comparison-copy,
+        .services-faq-copy,
         .contact-hero-copy,
         .contact-form-head,
         .service-detail-copy,
@@ -3139,5 +3144,149 @@ address {
 @media (max-width: 680px) {
     .home-hero-trust {
         display: none !important;
+    }
+}
+
+/* ==========================================================
+   REMOVE HOVER FROM CTA SIDE NOTES
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cta-side-notes:hover,
+    .cta-side-notes.reveal-up.is-visible:hover {
+        transform: none !important;
+        border-color: rgba(255, 247, 232, 0.14) !important;
+        background:
+            radial-gradient(circle at 20% 0%, rgba(255, 210, 46, 0.12), transparent 10rem),
+            var(--color-dark) !important;
+        box-shadow: var(--shadow-card) !important;
+        filter: none !important;
+    }
+
+    .cta-side-notes span:hover,
+    .cta-side-notes.reveal-up.is-visible span:hover {
+        transform: none !important;
+        color: rgba(255, 247, 232, 0.84) !important;
+        border-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .cta-side-notes span:hover::before,
+    .cta-side-notes.reveal-up.is-visible span:hover::before {
+        color: var(--color-dark) !important;
+        background: var(--color-accent) !important;
+        box-shadow: none !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================
+   CTA SIDE NOTES — ICON ONLY HOVER
+   Card and text stay static, only check icons react
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .cta-side-notes:hover,
+    .cta-side-notes.reveal-up.is-visible:hover {
+        transform: none !important;
+        border-color: rgba(255, 247, 232, 0.14) !important;
+        background:
+            radial-gradient(circle at 20% 0%, rgba(255, 210, 46, 0.12), transparent 10rem),
+            var(--color-dark) !important;
+        box-shadow: var(--shadow-card) !important;
+        filter: none !important;
+    }
+
+    .cta-side-notes span:hover,
+    .cta-side-notes.reveal-up.is-visible span:hover {
+        transform: none !important;
+        color: rgba(255, 247, 232, 0.84) !important;
+        border-color: transparent !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .cta-side-notes span::before {
+        transition:
+            transform 260ms ease,
+            background 260ms ease,
+            color 260ms ease,
+            box-shadow 260ms ease !important;
+    }
+
+    .cta-side-notes span:hover::before,
+    .cta-side-notes.reveal-up.is-visible span:hover::before {
+        transform: translateY(-2px) rotate(-8deg) scale(1.08) !important;
+        color: var(--color-accent) !important;
+        background: var(--color-dark) !important;
+        box-shadow:
+            0 10px 22px rgba(0, 0, 0, 0.22),
+            0 0 0 5px rgba(255, 210, 46, 0.13) !important;
+    }
+}
+
+
+/* ==========================================================
+   ABOUT PAPER ROUTE — PREMIUM HOVERS
+   ========================================================== */
+
+.about-paper-route,
+.about-paper-route span,
+.about-paper-route i,
+.about-paper-route span::before,
+.about-paper-route span::after {
+    transition:
+        transform 260ms ease,
+        opacity 260ms ease,
+        color 260ms ease,
+        background 260ms ease,
+        border-color 260ms ease,
+        box-shadow 260ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .about-paper-route:hover span {
+        opacity: 0.64;
+    }
+
+    .about-paper-route span:hover {
+        opacity: 1;
+        transform: translateY(-4px);
+        color: var(--color-heading);
+    }
+
+    .about-paper-route span:hover::before {
+        transform: scale(1.12) rotate(-8deg);
+        background: var(--color-dark);
+        color: var(--color-accent);
+        box-shadow:
+            0 12px 24px rgba(29, 22, 14, 0.18),
+            0 0 0 5px rgba(255, 210, 46, 0.14);
+    }
+
+    .about-paper-route span:hover::after {
+        width: 100%;
+        background: var(--color-accent);
+        box-shadow: 0 0 18px rgba(255, 210, 46, 0.28);
+    }
+
+    .about-paper-route:hover i {
+        opacity: 0.42;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(123, 106, 85, 0.42),
+                transparent);
+    }
+
+    .about-paper-route span:hover+i,
+    .about-paper-route i:has(+ span:hover) {
+        opacity: 1;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(255, 210, 46, 0.9),
+                transparent);
     }
 }
