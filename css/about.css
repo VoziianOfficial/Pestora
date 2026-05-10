@@ -474,7 +474,7 @@
     z-index: -3;
     background:
         linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.52)),
-        url("../assets/images/cta-pest-home.jpg") center / cover no-repeat;
+        url("../assets/images/services-cta-bg.jpg") center / cover no-repeat;
     filter: saturate(1.04) contrast(1.03);
 }
 

@@ -2595,3 +2595,192 @@ address {
     }
 }
 
+/* ==========================================================
+   CTA INNER PHOTO BACKGROUNDS
+   Services / About / Service pages / Legal pages
+   Home CTA is NOT included
+   ========================================================== */
+
+.services-cta-inner,
+.about-cta-inner,
+.service-final-inner,
+.legal-cta-inner {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 247, 232, 0.18);
+    box-shadow: var(--shadow-deep);
+}
+
+/* content above photo */
+.services-cta-inner>*,
+.about-cta-inner>*,
+.service-final-inner>*,
+.legal-cta-inner>* {
+    position: relative;
+    z-index: 3;
+}
+
+/* photo layer */
+.services-cta-inner::before,
+.about-cta-inner::before,
+.service-final-inner::before,
+.legal-cta-inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.03);
+    filter: saturate(1.05) contrast(1.03);
+}
+
+/* dark warm overlay */
+.services-cta-inner::after,
+.about-cta-inner::after,
+.service-final-inner::after,
+.legal-cta-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg,
+            rgba(23, 17, 10, 0.86) 0%,
+            rgba(23, 17, 10, 0.68) 48%,
+            rgba(23, 17, 10, 0.56) 100%),
+        radial-gradient(circle at 18% 18%, rgba(255, 210, 46, 0.16), transparent 18rem);
+}
+
+/* individual background images */
+.services-cta-inner::before {
+    background-image: url("../assets/images/services-cta-bg.jpg");
+}
+
+.about-cta-inner::before {
+    background-image: url("../assets/images/services-cta-bg.jpg");
+}
+
+.service-final-inner::before {
+    background-image: url("../assets/images/services-cta-bg.jpg");
+}
+
+.legal-cta-inner::before {
+    background-image: url("../assets/images/services-cta-bg.jpg");
+}
+
+/* text colors */
+.services-cta-inner,
+.about-cta-inner,
+.service-final-inner,
+.legal-cta-inner {
+    color: var(--color-paper);
+}
+
+.services-cta-inner h2,
+.about-cta-inner h2,
+.service-final-inner h2,
+.legal-cta-inner h2 {
+    color: var(--color-paper);
+}
+
+.services-cta-inner p,
+.about-cta-inner p,
+.service-final-inner p,
+.legal-cta-inner p {
+    color: rgba(255, 247, 232, 0.84);
+}
+
+.services-cta-inner .eyebrow,
+.about-cta-inner .eyebrow,
+.service-final-inner .eyebrow,
+.legal-cta-inner .eyebrow {
+    color: var(--color-accent);
+}
+
+/* ghost buttons on photo background */
+.services-cta-inner .btn-ghost,
+.about-cta-inner .btn-ghost,
+.service-final-inner .btn-ghost,
+.legal-cta-inner .btn-ghost {
+    color: var(--color-paper);
+    border-color: rgba(255, 247, 232, 0.34);
+    background: rgba(255, 247, 232, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.services-cta-inner .btn-ghost:hover,
+.about-cta-inner .btn-ghost:hover,
+.service-final-inner .btn-ghost:hover,
+.legal-cta-inner .btn-ghost:hover {
+    color: var(--color-heading);
+    background: rgba(255, 247, 232, 0.92);
+    border-color: rgba(255, 210, 46, 0.42);
+}
+
+/* mobile */
+@media (max-width: 760px) {
+
+    .services-cta-inner,
+    .about-cta-inner,
+    .service-final-inner,
+    .legal-cta-inner {
+        border-radius: 22px;
+    }
+
+    .services-cta-inner::after,
+    .about-cta-inner::after,
+    .service-final-inner::after,
+    .legal-cta-inner::after {
+        background:
+            linear-gradient(180deg,
+                rgba(23, 17, 10, 0.88) 0%,
+                rgba(23, 17, 10, 0.72) 100%),
+            radial-gradient(circle at 20% 10%, rgba(255, 210, 46, 0.14), transparent 16rem);
+    }
+}
+
+/* ==========================================================
+   REMOVE OUTER CTA SECTION BACKGROUNDS
+   Keep photo only inside inner CTA cards
+   ========================================================== */
+
+.services-cta,
+.about-cta,
+.service-final-cta,
+.legal-cta {
+    background: transparent !important;
+    color: inherit !important;
+}
+
+/* Remove outer section photo layers */
+.services-cta::before,
+.services-cta::after,
+.about-cta::before,
+.about-cta::after,
+.service-final-cta::before,
+.service-final-cta::after,
+.legal-cta::before,
+.legal-cta::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Optional: if the torn paper line looks weird after removing section background */
+.about-cta>.torn-paper-top,
+.service-final-cta>.torn-paper-top,
+.legal-cta>.torn-paper-top {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Keep spacing clean after removing the big background */
+.services-cta,
+.about-cta,
+.service-final-cta,
+.legal-cta {
+    padding-block: clamp(2.4rem, 5vw, 4rem) !important;
+}

@@ -18,7 +18,7 @@
     background:
         linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.62) 48%, rgba(23, 17, 10, 0.34)),
         linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.72)),
-        url("../assets/images/contact-pest-hero.jpg") center / cover no-repeat;
+        url("../assets/images/service-ant-cockroach.jpg") center / cover no-repeat;
     filter: saturate(1.04) contrast(1.03);
 }
 
