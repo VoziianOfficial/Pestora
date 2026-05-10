@@ -66,6 +66,7 @@
         initSmoothAnchorOffset();
         initComparisonHover();
         initServiceCardLabels();
+        window.PestoraApp?.applyConfigEverywhere?.();
     };
 
     if (doc.readyState === "loading") {

@@ -143,6 +143,7 @@
         initMapMotion();
         initContactCardHover();
         initFormProgress();
+        window.PestoraApp?.applyConfigEverywhere?.();
     };
 
     if (doc.readyState === "loading") {
@@ -168,4 +169,6 @@
         link.href = mapsUrl;
         link.setAttribute("aria-label", `Open ${config.companyName || "company"} address in Google Maps: ${address}`);
     });
+
+    window.PestoraApp?.applyConfigEverywhere?.();
 })();

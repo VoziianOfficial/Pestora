@@ -319,6 +319,8 @@
         window.addEventListener("resize", rebuild);
 
         rebuild();
+        window.PestoraApp?.applyConfigEverywhere?.();
+        window.requestAnimationFrame(() => window.PestoraApp?.applyConfigEverywhere?.());
 
         animationFrame = window.requestAnimationFrame(tick);
 

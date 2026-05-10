@@ -101,6 +101,7 @@
         initLegalSectionReveal();
         initLegalAnchorSmoothing();
         initLegalContactFocus();
+        window.PestoraApp?.applyConfigEverywhere?.();
     };
 
     if (doc.readyState === "loading") {

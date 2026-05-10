@@ -212,6 +212,7 @@
 
         const canRefreshReveal = typeof window.PestoraApp?.refreshReveal === "function";
         window.PestoraApp?.refreshReveal?.();
+        window.PestoraApp?.applyConfigEverywhere?.();
 
         if (!canRefreshReveal) {
             window.requestAnimationFrame(() => {

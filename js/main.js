@@ -316,23 +316,46 @@
         });
     };
 
-    const applyGlobalConfigReplacements = () => {
-        replaceHardcodedConfigTokens();
-        updateMapLinks();
+    let isApplyingConfigEverywhere = false;
+    let configRafPending = false;
+    let mutationObserver = null;
 
-        const normalizedTitle = normalizeConfigText(doc.title);
-        if (typeof normalizedTitle === "string" && normalizedTitle !== doc.title) {
-            doc.title = normalizedTitle;
-        }
+    const applyConfigEverywhere = () => {
+        if (isApplyingConfigEverywhere) return;
+        isApplyingConfigEverywhere = true;
 
-        const description = qs('meta[name="description"]');
-        if (description) {
-            const current = description.getAttribute("content") || "";
-            const normalized = normalizeConfigText(current);
-            if (typeof normalized === "string" && normalized !== current) {
-                description.setAttribute("content", normalized);
+        try {
+            applyPageMeta();
+            populateConfigValues();
+            updateMapLinks();
+            replaceHardcodedConfigTokens();
+
+            const normalizedTitle = normalizeConfigText(doc.title);
+            if (typeof normalizedTitle === "string" && normalizedTitle !== doc.title) {
+                doc.title = normalizedTitle;
             }
+
+            const description = qs('meta[name="description"]');
+            if (description) {
+                const current = description.getAttribute("content") || "";
+                const normalized = normalizeConfigText(current);
+                if (typeof normalized === "string" && normalized !== current) {
+                    description.setAttribute("content", normalized);
+                }
+            }
+        } finally {
+            isApplyingConfigEverywhere = false;
         }
+    };
+
+    const scheduleApplyConfigEverywhere = () => {
+        if (configRafPending) return;
+        configRafPending = true;
+
+        window.requestAnimationFrame(() => {
+            configRafPending = false;
+            applyConfigEverywhere();
+        });
     };
 
     const replaceHardcodedConfigTokens = () => {
@@ -391,7 +414,7 @@
             textNode = walker.nextNode();
         }
 
-        const allowedAttrs = ["href", "aria-label", "title", "alt", "content", "placeholder"];
+        const allowedAttrs = ["href", "aria-label", "title", "alt", "content", "placeholder", "value"];
         const elements = qsa("*", body);
 
         elements.forEach((element) => {
@@ -972,6 +995,7 @@
 
     window.PestoraApp = window.PestoraApp || {};
     window.PestoraApp.refreshReveal = initReveal;
+    window.PestoraApp.applyConfigEverywhere = applyConfigEverywhere;
 
     const initRequestForms = () => {
         qsa("[data-request-form]").forEach((form) => {
@@ -1041,18 +1065,41 @@
     const init = () => {
         applyPageMeta();
         injectHeader();
+        applyConfigEverywhere();
         injectFooter();
-        populateConfigValues();
-
+        applyConfigEverywhere();
         renderPestCategories();
+        applyConfigEverywhere();
         renderServiceCards();
+        applyConfigEverywhere();
         renderHowSteps();
+        applyConfigEverywhere();
         renderBenefits();
+        applyConfigEverywhere();
         renderFaq();
+        applyConfigEverywhere();
         renderPolicyBanner();
+        applyConfigEverywhere();
 
-        populateConfigValues();
-        applyGlobalConfigReplacements();
+        window.requestAnimationFrame(applyConfigEverywhere);
+        window.setTimeout(applyConfigEverywhere, 0);
+        window.setTimeout(applyConfigEverywhere, 100);
+        window.setTimeout(applyConfigEverywhere, 400);
+        window.addEventListener("load", applyConfigEverywhere, { once: true });
+
+        if (!mutationObserver && body) {
+            mutationObserver = new MutationObserver((mutations) => {
+                for (const mutation of mutations) {
+                    if (mutation.type !== "childList") continue;
+                    if (mutation.addedNodes && mutation.addedNodes.length) {
+                        scheduleApplyConfigEverywhere();
+                        break;
+                    }
+                }
+            });
+
+            mutationObserver.observe(body, { childList: true, subtree: true });
+        }
 
         initMobileMenu();
         initFaqAccordion();

@@ -79,6 +79,7 @@
         initAboutMediaMotion();
         initValueHover();
         initStripHover();
+        window.PestoraApp?.applyConfigEverywhere?.();
     };
 
     if (doc.readyState === "loading") {
