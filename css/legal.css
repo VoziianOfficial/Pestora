@@ -18,7 +18,7 @@
     background:
         linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.66) 52%, rgba(23, 17, 10, 0.42)),
         linear-gradient(180deg, rgba(23, 17, 10, 0.08), rgba(23, 17, 10, 0.74)),
-        url("../assets/images/legal-pestora-bg.jpg") center / cover no-repeat;
+        url("../assets/images/hero-termite.jpg") center / cover no-repeat;
     filter: saturate(0.98) contrast(1.03);
 }
 
@@ -356,7 +356,7 @@
         background:
             linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.7)),
             linear-gradient(180deg, rgba(23, 17, 10, 0.12), rgba(23, 17, 10, 0.72)),
-            url("../assets/images/legal-pestora-bg.jpg") 58% center / cover no-repeat;
+            url("../assets/images/provider-comparison-bg.jpg") 58% center / cover no-repeat;
     }
 
     .legal-sidebar {
