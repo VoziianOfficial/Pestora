@@ -276,7 +276,7 @@
     z-index: -3;
     background:
         linear-gradient(90deg, rgba(23, 17, 10, 0.92), rgba(23, 17, 10, 0.68)),
-        url("../assets/images/about-dark-strip.jpg") center / cover no-repeat;
+        url("../assets/images/hero-termite.jpg") center / cover no-repeat;
     filter: saturate(0.98) contrast(1.05);
 }
 
@@ -642,3 +642,387 @@
     opacity: 0.58;
     transform: scale(0.985);
 }
+
+/* ==========================================================
+   REMOVE HOVER FROM ABOUT HERO CARD
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .about-hero-card:hover,
+    .about-hero-card.reveal-up:hover,
+    .about-hero-card.reveal-up.is-visible:hover,
+    .about-hero .about-hero-card:hover {
+        transform: translateY(0) !important;
+        border-color: rgba(255, 247, 232, 0.2) !important;
+        background:
+            radial-gradient(circle at 18% 0%, rgba(255, 210, 46, 0.18), transparent 12rem),
+            rgba(23, 17, 10, 0.38) !important;
+        box-shadow: var(--shadow-deep) !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+
+    .about-hero-card:hover::before,
+    .about-hero .about-hero-card:hover::before {
+        background: rgba(255, 210, 46, 0.78) !important;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18) !important;
+        transform: rotate(6deg) !important;
+    }
+
+    .about-hero-card:hover h2 {
+        color: var(--color-paper) !important;
+        transform: none !important;
+        text-shadow: none !important;
+    }
+
+    .about-hero-card:hover p {
+        color: rgba(255, 247, 232, 0.78) !important;
+        transform: none !important;
+        text-shadow: none !important;
+    }
+
+    .about-hero-card:hover li {
+        color: rgba(255, 247, 232, 0.84) !important;
+        transform: none !important;
+        text-shadow: none !important;
+    }
+
+    .about-hero-card:hover li::before {
+        background: var(--color-accent) !important;
+        box-shadow: 0 0 0 5px rgba(255, 210, 46, 0.13) !important;
+        transform: none !important;
+    }
+}
+
+/* ==========================================================
+   ABOUT — MANIFESTO SECTION
+   No cards. No list. Editorial rhythm break.
+   ========================================================== */
+
+.about-manifesto {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5.4rem);
+    color: var(--color-paper);
+    background: var(--color-dark);
+}
+
+.about-manifesto::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -4;
+    background:
+        linear-gradient(90deg, rgba(23, 17, 10, 0.9), rgba(23, 17, 10, 0.58), rgba(23, 17, 10, 0.84)),
+        linear-gradient(180deg, rgba(23, 17, 10, 0.2), rgba(23, 17, 10, 0.72)),
+        url("../assets/images/hero-termite.jpg") center / cover no-repeat;
+    filter: saturate(0.98) contrast(1.06);
+}
+
+.about-manifesto::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 22% 22%, rgba(255, 210, 46, 0.18), transparent 22rem),
+        radial-gradient(circle at 82% 70%, rgba(255, 247, 232, 0.08), transparent 26rem);
+}
+
+.about-manifesto-stage {
+    position: relative;
+    min-height: clamp(420px, 46vw, 620px);
+    display: grid;
+    place-items: center;
+    align-content: center;
+    text-align: center;
+    padding: clamp(2rem, 5vw, 5rem);
+}
+
+.about-manifesto-bgword {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    z-index: -1;
+    color: rgba(255, 247, 232, 0.045);
+    font-family: var(--font-heading);
+    font-size: clamp(4.2rem, 14vw, 16rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.about-manifesto-kicker {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    margin-bottom: 1rem;
+    padding: 0.46rem 0.82rem;
+    border: 1px solid rgba(255, 210, 46, 0.42);
+    border-radius: 999px;
+    color: var(--color-accent);
+    background: rgba(255, 210, 46, 0.08);
+    backdrop-filter: blur(10px);
+    font-size: 0.76rem;
+    font-weight: 950;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.about-manifesto h2 {
+    max-width: 930px;
+    color: var(--color-paper);
+    font-size: clamp(2.2rem, 5vw, 5.3rem);
+    line-height: 0.96;
+    letter-spacing: -0.075em;
+    text-wrap: balance;
+    text-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+}
+
+.about-manifesto p {
+    max-width: 680px;
+    margin-top: 1.25rem;
+    color: rgba(255, 247, 232, 0.78);
+    font-size: clamp(1rem, 1.3vw, 1.12rem);
+    line-height: 1.7;
+}
+
+.about-manifesto-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.55rem, 1.8vw, 1.2rem);
+    width: min(100%, 820px);
+    margin-top: clamp(2rem, 4vw, 3.2rem);
+    color: rgba(255, 247, 232, 0.86);
+}
+
+.about-manifesto-path span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    padding: 0.42rem 0;
+    font-size: clamp(0.86rem, 1.2vw, 1rem);
+    font-weight: 950;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-manifesto-path span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 70%;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    transform: translateX(-50%);
+}
+
+.about-manifesto-path i {
+    display: block;
+    width: clamp(28px, 5vw, 72px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 210, 46, 0.8), transparent);
+}
+
+.about-manifesto .torn-paper-top,
+.about-manifesto .torn-paper-bottom {
+    color: var(--color-paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .about-manifesto-stage:hover .about-manifesto-bgword {
+        color: rgba(255, 210, 46, 0.055);
+        transform: translate(-50%, -50%) scale(1.015);
+    }
+
+    .about-manifesto-bgword {
+        transition:
+            transform 520ms ease,
+            color 320ms ease;
+    }
+
+    .about-manifesto-path span:hover {
+        color: var(--color-accent);
+    }
+}
+
+@media (max-width: 760px) {
+    .about-manifesto {
+        padding-block: 3rem;
+    }
+
+    .about-manifesto-stage {
+        min-height: 430px;
+        padding-inline: 1rem;
+    }
+
+    .about-manifesto-bgword {
+        font-size: clamp(4rem, 24vw, 7rem);
+        white-space: normal;
+    }
+
+    .about-manifesto h2 {
+        font-size: clamp(2.15rem, 11vw, 3.6rem);
+        letter-spacing: -0.065em;
+    }
+
+    .about-manifesto-path {
+        flex-wrap: wrap;
+        gap: 0.65rem 0.85rem;
+    }
+
+    .about-manifesto-path i {
+        width: 28px;
+    }
+}
+
+@media (max-width: 460px) {
+    .about-manifesto-path i {
+        display: none;
+    }
+
+    .about-manifesto-path span {
+        min-height: 34px;
+    }
+}
+
+/* ==========================================================
+   ABOUT — LIGHT PAPER BREAK SECTION
+   Contrast between dark/photo sections, no cards/lists
+   ========================================================== */
+
+.about-paper-break {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(3rem, 6vw, 5rem);
+    background:
+        radial-gradient(circle at 12% 18%, rgba(255, 210, 46, 0.13), transparent 18rem),
+        radial-gradient(circle at 88% 72%, rgba(29, 22, 14, 0.06), transparent 18rem),
+        linear-gradient(180deg, var(--color-paper), var(--color-surface-warm));
+}
+
+.about-paper-break::before {
+    content: "PESTORA";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: rgba(29, 22, 14, 0.035);
+    font-family: var(--font-heading);
+    font-size: clamp(5rem, 16vw, 15rem);
+    font-weight: 900;
+    letter-spacing: -0.08em;
+    line-height: 0.8;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.about-paper-break-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.about-paper-break h2 {
+    max-width: 900px;
+    margin-inline: auto;
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.065em;
+    text-wrap: balance;
+}
+
+.about-paper-break p:not(.eyebrow) {
+    max-width: 680px;
+    margin: 1rem auto 0;
+    color: var(--color-muted);
+    font-size: clamp(0.98rem, 1.25vw, 1.1rem);
+    line-height: 1.72;
+}
+
+.about-paper-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.6rem, 1.8vw, 1.2rem);
+    margin-top: clamp(1.8rem, 4vw, 3rem);
+    color: var(--color-heading);
+}
+
+.about-paper-route span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding-bottom: 0.28rem;
+    font-size: clamp(0.78rem, 1vw, 0.92rem);
+    font-weight: 950;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.about-paper-route span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 72%;
+    height: 3px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    transform: translateX(-50%);
+}
+
+.about-paper-route i {
+    width: clamp(28px, 5vw, 74px);
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(123, 106, 85, 0.42),
+            transparent);
+}
+
+.about-paper-break .torn-paper-bottom {
+    color: var(--color-paper);
+}
+
+@media (max-width: 760px) {
+    .about-paper-break {
+        padding-block: 3rem;
+    }
+
+    .about-paper-break::before {
+        font-size: clamp(4rem, 24vw, 8rem);
+        white-space: normal;
+    }
+
+    .about-paper-route {
+        flex-wrap: wrap;
+        gap: 0.7rem 0.9rem;
+    }
+
+    .about-paper-route i {
+        width: 28px;
+    }
+}
+
+@media (max-width: 460px) {
+    .about-paper-route i {
+        display: none;
+    }
+}
+
