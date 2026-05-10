@@ -678,9 +678,7 @@
     transform: scale(0.985);
 }
 
-/* ==========================================================
-   REMOVE HOVER FROM ABOUT HERO CARD
-   ========================================================== */
+
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -730,10 +728,7 @@
     }
 }
 
-/* ==========================================================
-   ABOUT — MANIFESTO SECTION
-   No cards. No list. Editorial rhythm break.
-   ========================================================== */
+
 
 .about-manifesto {
     position: relative;
@@ -933,10 +928,7 @@
     }
 }
 
-/* ==========================================================
-   ABOUT — LIGHT PAPER BREAK SECTION
-   Contrast between dark/photo sections, no cards/lists
-   ========================================================== */
+
 
 .about-paper-break {
     position: relative;

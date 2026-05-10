@@ -153,7 +153,7 @@
 })();
 
 
-/* Dynamic Google Maps link from SITE_CONFIG address */
+
 (function () {
     const config = window.SITE_CONFIG;
     const mapLinks = document.querySelectorAll("[data-map-link]");

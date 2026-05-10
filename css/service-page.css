@@ -698,10 +698,7 @@
     transform: scale(0.985);
 }
 
-/* ==========================================================
-   SERVICE SNAPSHOT — UNIQUE EDITORIAL STRIP
-   No cards, no lists, compact service-page rhythm break
-   ========================================================== */
+
 
 .service-snapshot {
     position: relative;
@@ -840,9 +837,7 @@
     }
 }
 
-/* ==========================================================
-   SERVICE SNAPSHOT FLOW — PREMIUM HOVERS
-   ========================================================== */
+
 
 .service-snapshot-flow span,
 .service-snapshot-flow i {

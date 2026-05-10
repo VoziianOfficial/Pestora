@@ -1736,10 +1736,7 @@ address {
     }
 }
 
-/* ==========================================================
-   PESTORA — RESPONSIVE SECTION HEADING CENTERING
-   Tablet/mobile only; avoid centering body content blocks.
-   ========================================================== */
+
 
 @media (max-width: 980px) {
     :is(
@@ -1829,7 +1826,7 @@ address {
         margin-inline: auto;
     }
 
-    /* These wrappers include lists; center only their heading blocks. */
+    
     .home-about-copy > :is(.eyebrow, h2, .lead) {
         text-align: center;
         margin-inline: auto;
@@ -1943,10 +1940,7 @@ address {
     }
 }
 
-/* ==========================================================
-   PESTORA — PREMIUM GLOBAL HOVER / CONTRAST POLISH
-   Add to the very end of /css/style.css
-   ========================================================== */
+
 
 :root {
     --hover-yellow-glow: 0 0 0 6px rgba(255, 210, 46, 0.16);
@@ -1957,7 +1951,7 @@ address {
     --hover-warm: rgba(255, 210, 46, 0.14);
 }
 
-/* Smooth all important UI parts */
+
 .btn,
 .header-phone,
 .site-nav-link,
@@ -2006,7 +2000,7 @@ address {
         filter 260ms ease;
 }
 
-/* Make inner spans/icons react more gracefully */
+
 .btn span,
 .header-phone span,
 .home-hero-trust span,
@@ -2026,7 +2020,7 @@ address {
         border-color 260ms ease;
 }
 
-/* Icons */
+
 .service-card-icon,
 .pest-category-icon,
 .how-step-icon,
@@ -2063,12 +2057,10 @@ address {
         filter 260ms ease;
 }
 
-/* Hover only on devices that actually support hover */
+
 @media (hover: hover) and (pointer: fine) {
 
-    /* =========================
-       BUTTONS
-       ========================= */
+    
 
     .btn:hover {
         transform: translateY(-3px);
@@ -2105,9 +2097,7 @@ address {
         transform: translateY(-1px);
     }
 
-    /* =========================
-       LOGO / HEADER / MENU
-       ========================= */
+    
 
     .site-logo:hover .site-logo-mark svg {
         transform: rotate(4deg) scale(1.08);
@@ -2132,9 +2122,7 @@ address {
         box-shadow: 0 12px 28px rgba(29, 22, 14, 0.08);
     }
 
-    /* =========================
-       PAPER / SECTION CARDS
-       ========================= */
+    
 
     .form-card:hover,
     .contact-card:hover,
@@ -2159,9 +2147,7 @@ address {
             var(--hover-yellow-glow);
     }
 
-    /* =========================
-       SERVICE PHOTO CARDS
-       ========================= */
+    
 
     .service-card {
         transition:
@@ -2202,9 +2188,7 @@ address {
         color: rgba(255, 247, 232, 0.96);
     }
 
-    /* =========================
-       CIRCULAR PEST ICONS
-       ========================= */
+    
 
     .pest-category:hover {
         transform: translateY(-3px);
@@ -2230,10 +2214,7 @@ address {
         color: var(--color-accent-strong);
     }
 
-    /* =========================
-       ROUND PHOTOS
-       about-photo-wrap + about/service round photos
-       ========================= */
+    
 
     .about-photo-wrap:hover,
     .about-round-photo:hover,
@@ -2265,9 +2246,7 @@ address {
             filter 320ms ease;
     }
 
-    /* =========================
-       HOW / BENEFITS / TESTIMONIALS
-       ========================= */
+    
 
     .how-step:hover {
         transform: translateY(-5px);
@@ -2322,9 +2301,7 @@ address {
         box-shadow: var(--hover-yellow-glow);
     }
 
-    /* =========================
-       FAQ
-       ========================= */
+    
 
     .faq-item:hover {
         transform: translateY(-3px);
@@ -2346,9 +2323,7 @@ address {
         transform: rotate(45deg) scale(1.06);
     }
 
-    /* =========================
-       COMPARISON / VALUES / FACTORS
-       ========================= */
+    
 
     .comparison-item:hover,
     .value-card:hover,
@@ -2381,9 +2356,7 @@ address {
         color: var(--color-accent);
     }
 
-    /* =========================
-       CONTACT / MAP
-       ========================= */
+    
 
     .contact-link:hover {
         transform: translateY(-4px);
@@ -2414,9 +2387,7 @@ address {
         box-shadow: 0 18px 38px rgba(29, 22, 14, 0.16);
     }
 
-    /* =========================
-       FORMS
-       ========================= */
+    
 
     .form-field:hover input,
     .form-field:hover select,
@@ -2436,9 +2407,7 @@ address {
         color: var(--color-heading);
     }
 
-    /* =========================
-       LEGAL / SIDEBAR
-       ========================= */
+    
 
     .legal-section:hover {
         transform: translateY(-3px);
@@ -2459,9 +2428,7 @@ address {
         box-shadow: var(--hover-yellow-glow);
     }
 
-    /* =========================
-       FOOTER
-       ========================= */
+    
 
     .footer-link:hover {
         color: var(--color-accent);
@@ -2480,9 +2447,7 @@ address {
         transform: scale(1.08);
     }
 
-    /* =========================
-       SMALL UI SPANS / BADGES
-       ========================= */
+    
 
     .home-hero-trust span:hover,
     .cta-side-notes span:hover,
@@ -2505,7 +2470,7 @@ address {
     }
 }
 
-/* Better focus states matching hover polish */
+
 .btn:focus-visible,
 .header-phone:focus-visible,
 .site-nav-link:focus-visible,
@@ -2520,7 +2485,7 @@ address {
     box-shadow: var(--hover-yellow-glow);
 }
 
-/* Touch devices: keep calm, no weird stuck hover */
+
 @media (hover: none) {
 
     .service-card,
@@ -2537,7 +2502,7 @@ address {
     }
 }
 
-/* Reduced motion safety */
+
 @media (prefers-reduced-motion: reduce) {
 
     .btn,
@@ -2561,11 +2526,7 @@ address {
     }
 }
 
-/* ==========================================================
-   PESTORA — REFINED HOVER OVERRIDE
-   Less yellow, more premium contrast
-   Add AFTER the previous hover polish
-   ========================================================== */
+
 
 :root {
     --hover-premium-dark: #24190F;
@@ -2576,7 +2537,7 @@ address {
     --hover-premium-soft: rgba(58, 42, 27, 0.08);
 }
 
-/* Primary yellow buttons should become darker on hover, not more yellow */
+
 @media (hover: hover) and (pointer: fine) {
 
     .btn-primary:hover,
@@ -2595,7 +2556,7 @@ address {
         stroke: var(--color-accent);
     }
 
-    /* Ghost buttons can become warm paper, not pure yellow */
+    
     .btn-ghost:hover,
     .btn-secondary:hover {
         color: var(--color-heading);
@@ -2606,7 +2567,7 @@ address {
             0 0 0 5px rgba(255, 210, 46, 0.08);
     }
 
-    /* Paper cards: hover should be warmer/deeper, not yellow blocks */
+    
     .form-card:hover,
     .contact-card:hover,
     .contact-map-card:hover,
@@ -2625,7 +2586,7 @@ address {
         box-shadow: var(--hover-premium-shadow);
     }
 
-    /* Dark cards/sections: keep dark, only accent the edge */
+    
     .comparison-item:hover,
     .compare-pill:hover,
     .about-strip-point:hover,
@@ -2637,7 +2598,7 @@ address {
         box-shadow: 0 22px 54px rgba(0, 0, 0, 0.24);
     }
 
-    /* Icons: not all yellow on hover — use dark icon circle with yellow icon */
+    
     .service-card:hover .service-card-icon,
     .pest-category:hover .pest-category-icon,
     .how-step:hover .how-step-icon,
@@ -2664,7 +2625,7 @@ address {
         fill: none;
     }
 
-    /* Number badges: dark on hover, yellow text */
+    
     .comparison-item:hover .comparison-icon,
     .value-card:hover .value-number,
     .factor-card:hover .factor-number,
@@ -2677,7 +2638,7 @@ address {
             0 0 0 5px rgba(255, 210, 46, 0.10);
     }
 
-    /* Small badges/spans: subtle cream/brown, not yellow flood */
+    
     .home-hero-trust span:hover,
     .cta-side-notes span:hover,
     .how-legal-note:hover,
@@ -2688,7 +2649,7 @@ address {
         box-shadow: 0 12px 26px rgba(29, 22, 14, 0.12);
     }
 
-    /* Pest circular icons: only ring is yellow, fill stays paper */
+    
     .pest-category:hover .pest-category-icon {
         background:
             radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.98), rgba(255, 247, 232, 0.92));
@@ -2704,7 +2665,7 @@ address {
         color: var(--hover-premium-brown);
     }
 
-    /* Service photo cards: keep the yellow as a thin edge only */
+    
     .service-card:hover::after {
         background: var(--color-accent);
         opacity: 0.9;
@@ -2720,7 +2681,7 @@ address {
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.26);
     }
 
-    /* Round photos: warmer depth, very light yellow aura */
+    
     .about-photo-wrap:hover,
     .about-round-photo:hover,
     .service-overview-photo:hover {
@@ -2729,7 +2690,7 @@ address {
             0 0 0 7px rgba(255, 210, 46, 0.08);
     }
 
-    /* Form hover: quiet premium */
+    
     .form-field:hover input,
     .form-field:hover select,
     .form-field:hover textarea {
@@ -2745,9 +2706,7 @@ address {
     }
 }
 
-/* ==========================================================
-   REMOVE HOVER FROM HERO PAPER CARD
-   ========================================================== */
+
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -2778,11 +2737,7 @@ address {
     }
 }
 
-/* ==========================================================
-   CTA INNER PHOTO BACKGROUNDS
-   Services / About / Service pages / Legal pages
-   Home CTA is NOT included
-   ========================================================== */
+
 
 .services-cta-inner,
 .about-cta-inner,
@@ -2796,7 +2751,7 @@ address {
     box-shadow: var(--shadow-deep);
 }
 
-/* content above photo */
+
 .services-cta-inner>*,
 .about-cta-inner>*,
 .service-final-inner>*,
@@ -2805,7 +2760,7 @@ address {
     z-index: 3;
 }
 
-/* photo layer */
+
 .services-cta-inner::before,
 .about-cta-inner::before,
 .service-final-inner::before,
@@ -2821,7 +2776,7 @@ address {
     filter: saturate(1.05) contrast(1.03);
 }
 
-/* dark warm overlay */
+
 .services-cta-inner::after,
 .about-cta-inner::after,
 .service-final-inner::after,
@@ -2838,7 +2793,7 @@ address {
         radial-gradient(circle at 18% 18%, rgba(255, 210, 46, 0.16), transparent 18rem);
 }
 
-/* individual background images */
+
 .services-cta-inner::before {
     background-image: url("../assets/images/services-cta-bg.jpg");
 }
@@ -2855,7 +2810,7 @@ address {
     background-image: url("../assets/images/services-cta-bg.jpg");
 }
 
-/* text colors */
+
 .services-cta-inner,
 .about-cta-inner,
 .service-final-inner,
@@ -2884,7 +2839,7 @@ address {
     color: var(--color-accent);
 }
 
-/* ghost buttons on photo background */
+
 .services-cta-inner .btn-ghost,
 .about-cta-inner .btn-ghost,
 .service-final-inner .btn-ghost,
@@ -2904,7 +2859,7 @@ address {
     border-color: rgba(255, 210, 46, 0.42);
 }
 
-/* mobile */
+
 @media (max-width: 760px) {
 
     .services-cta-inner,
@@ -2926,10 +2881,7 @@ address {
     }
 }
 
-/* ==========================================================
-   REMOVE OUTER CTA SECTION BACKGROUNDS
-   Keep photo only inside inner CTA cards
-   ========================================================== */
+
 
 .services-cta,
 .about-cta,
@@ -2939,7 +2891,7 @@ address {
     color: inherit !important;
 }
 
-/* Remove outer section photo layers */
+
 .services-cta::before,
 .services-cta::after, 
 .about-cta::before,
@@ -2952,7 +2904,7 @@ address {
     display: none !important;
 }
 
-/* Optional: if the torn paper line looks weird after removing section background */
+
 .about-cta>.torn-paper-top,
 .service-final-cta>.torn-paper-top,
 .legal-cta>.torn-paper-top {
@@ -2960,7 +2912,7 @@ address {
     visibility: hidden !important;
 }
 
-/* Keep spacing clean after removing the big background */
+
 .services-cta,
 .about-cta,
 .service-final-cta,
@@ -2968,12 +2920,9 @@ address {
     padding-block: clamp(2.4rem, 5vw, 4rem) !important;
 }
 
-/* ==========================================================
-   CTA ACTIONS — TABLET / MOBILE BUTTON ALIGNMENT
-   About / Services / Service pages / Legal
-   ========================================================== */
 
-/* Tablet: compact, one line, no breaking */
+
+
 @media (min-width: 761px) and (max-width: 1120px) {
 
     .about-cta-actions,
@@ -3018,7 +2967,7 @@ address {
     }
 }
 
-/* Smaller tablets: if text area is tight, keep buttons in one clean row under text */
+
 @media (min-width: 761px) and (max-width: 920px) {
 
     .about-cta-inner,
@@ -3036,7 +2985,7 @@ address {
     }
 }
 
-/* Mobile: equal buttons, aligned evenly across the section */
+
 @media (max-width: 760px) {
 
     .about-cta-actions,
@@ -3064,7 +3013,7 @@ address {
     }
 }
 
-/* Very small mobile: keep buttons comfortable */
+
 @media (max-width: 420px) {
 
     .about-cta-actions .btn,
@@ -3077,12 +3026,9 @@ address {
     }
 }
 
-/* ==========================================================
-   TABLET — KEEP HOME ABOUT + SERVICE OVERVIEW LIKE DESKTOP
-   Side-by-side layout on tablets, mobile stays stacked
-   ========================================================== */
 
-/* HOME ABOUT: tablet layout like desktop */
+
+
 @media (min-width: 681px) and (max-width: 900px) {
     .home-about-grid {
         grid-template-columns: minmax(0, 0.92fr) minmax(300px, 0.82fr) !important;
@@ -3111,7 +3057,7 @@ address {
     }
 }
 
-/* SERVICE OVERVIEW: tablet layout like desktop */
+
 @media (min-width: 761px) and (max-width: 1180px) {
     .service-overview-grid {
         grid-template-columns: minmax(0, 0.82fr) minmax(300px, 0.68fr) !important;
@@ -3140,16 +3086,14 @@ address {
     }
 }
 
-/* Hide hero trust badges on mobile */
+
 @media (max-width: 680px) {
     .home-hero-trust {
         display: none !important;
     }
 }
 
-/* ==========================================================
-   REMOVE HOVER FROM CTA SIDE NOTES
-   ========================================================== */
+
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -3182,10 +3126,7 @@ address {
     }
 }
 
-/* ==========================================================
-   CTA SIDE NOTES — ICON ONLY HOVER
-   Card and text stay static, only check icons react
-   ========================================================== */
+
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -3229,9 +3170,7 @@ address {
 }
 
 
-/* ==========================================================
-   ABOUT PAPER ROUTE — PREMIUM HOVERS
-   ========================================================== */
+
 
 .about-paper-route,
 .about-paper-route span,
@@ -3290,3 +3229,4 @@ address {
                 transparent);
     }
 }
+

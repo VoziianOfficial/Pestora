@@ -496,10 +496,7 @@
     background: rgba(255, 255, 255, 0.86);
 }
 
-/* ==========================================================
-   CONTACT — REQUEST RHYTHM SECTION
-   Light typography break, no cards
-   ========================================================== */
+
 
 .contact-request-rhythm {
     position: relative;
@@ -595,10 +592,7 @@
     background: linear-gradient(90deg, transparent, rgba(123, 106, 85, 0.42), transparent);
 }
 
-/* ==========================================================
-   CONTACT — AFTER SUBMIT STRIP
-   Dark editorial section, no cards-in-cards
-   ========================================================== */
+
 
 .contact-after-submit {
     position: relative;
@@ -740,10 +734,7 @@
     }
 }
 
-/* ==========================================================
-   CONTACT — REQUEST SENTENCE SECTION
-   Different from route sections, no cards/lists
-   ========================================================== */
+
 
 .contact-request-sentence {
     position: relative;
@@ -911,10 +902,7 @@
 }
 
 
-/* ==========================================================
-   CONTACT MAIN — PREMIUM REQUEST LAB REDESIGN
-   Compact form + editorial side + cockroach details
-   ========================================================== */
+
 
 .contact-request-lab {
     position: relative;
@@ -970,7 +958,7 @@
     box-shadow: 0 0 0 5px rgba(255, 210, 46, 0.14);
 }
 
-/* Compact form */
+
 .contact-form-mini {
     position: relative;
     width: min(100%, 640px);
@@ -1079,7 +1067,7 @@
     font-size: 0.78rem;
 }
 
-/* Right editorial side */
+
 .contact-lab-side {
     position: relative;
     display: grid;
@@ -1151,7 +1139,7 @@
     line-height: 1.35;
 }
 
-/* Cockroach decorations */
+
 .contact-main-roach {
     position: absolute;
     z-index: 1;
@@ -1302,10 +1290,7 @@
     }
 }
 
-/* ==========================================================
-   CONTACT FORM — PREMIUM CUSTOM SELECTS
-   For #contactPestType and #contactTiming
-   ========================================================== */
+
 
 #contactPestType,
 #contactTiming {
@@ -1348,19 +1333,19 @@
         color var(--transition);
 }
 
-/* Remove native arrow in old browsers */
+
 #contactPestType::-ms-expand,
 #contactTiming::-ms-expand {
     display: none;
 }
 
-/* Placeholder */
+
 #contactPestType:invalid,
 #contactTiming:invalid {
     color: rgba(123, 106, 85, 0.68);
 }
 
-/* Focus */
+
 #contactPestType:focus,
 #contactTiming:focus {
     color: var(--color-heading);
@@ -1371,7 +1356,7 @@
         0 12px 24px rgba(29, 22, 14, 0.08);
 }
 
-/* Hover */
+
 @media (hover: hover) and (pointer: fine) {
 
     #contactPestType:hover,
@@ -1384,7 +1369,7 @@
     }
 }
 
-/* Dropdown options — browser support is limited */
+
 #contactPestType option,
 #contactTiming option {
     color: var(--color-heading);
@@ -1392,12 +1377,9 @@
     font-weight: 700;
 }
 
-/* ==========================================================
-   CONTACT FORM — COMPACT TABLET / MOBILE
-   Hide checks on tablet/mobile, hide lab lines on mobile
-   ========================================================== */
 
-/* Tablet + mobile: make form more compact */
+
+
 @media (max-width: 1180px) {
     .contact-form-mini {
         padding: 0.85rem !important;
@@ -1435,7 +1417,7 @@
     }
 }
 
-/* Mobile only: hide left reminder lines too */
+
 @media (max-width: 760px) {
     .contact-lab-lines {
         display: none !important;
@@ -1474,16 +1456,13 @@
     }
 }
 
-/* Hide compact form bottom notice */
+
 .contact-form-mini .request-form::after {
     content: none !important;
     display: none !important;
 }
 
-/* ==========================================================
-   CONTACT — SIMPLE USA SERVICE MAP SECTION
-   No API, no card-in-card, clean abstract map
-   ========================================================== */
+
 
 .contact-service-map {
     position: relative;
@@ -1699,7 +1678,7 @@
 }
 
 
-/* Clickable map visual */
+
 .contact-map-open-link {
     display: block;
     color: inherit;
@@ -1742,10 +1721,7 @@
     outline-offset: 5px;
 }
 
-/* ==========================================================
-   CONTACT MAP — PHOTO INSIDE MAP
-   Keeps map clickable, adds premium photo background
-   ========================================================== */
+
 
 .contact-service-map-visual {
     isolation: isolate;
@@ -1760,7 +1736,7 @@
         url("../assets/images/service-ant-cockroach.jpg") center / cover no-repeat !important;
 }
 
-/* soft paper/map overlay over photo */
+
 .contact-service-map-visual::after {
     content: "";
     position: absolute;
@@ -1775,12 +1751,12 @@
     mix-blend-mode: screen;
 }
 
-/* keep USA text above photo */
+
 .contact-service-map-visual::before {
     z-index: 2;
 }
 
-/* keep abstract USA shape visible but softer */
+
 .contact-map-shape {
     z-index: 3;
     opacity: 0.82;
@@ -1791,7 +1767,7 @@
         drop-shadow(0 22px 34px rgba(0, 0, 0, 0.22)) drop-shadow(0 0 16px rgba(255, 210, 46, 0.14));
 }
 
-/* pin and labels above everything */
+
 .contact-map-pin {
     z-index: 4;
 }

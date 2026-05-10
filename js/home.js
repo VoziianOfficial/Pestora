@@ -131,7 +131,7 @@
         const buildLoop = () => {
             loopPad = getLoopPad();
 
-            // Remove existing clones
+            
             qsa("[data-clone]", track).forEach((node) => node.remove());
 
             if (realCount <= loopPad) {

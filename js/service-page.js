@@ -341,7 +341,7 @@
     }
 })();
 
-/* Service snapshot dynamic content */
+
 (function () {
     const config = window.SITE_CONFIG;
     if (!config || !Array.isArray(config.services)) return;
